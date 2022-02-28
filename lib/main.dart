@@ -1,3 +1,5 @@
+import 'package:coinstats/theme/configtheme.dart';
+import 'package:coinstats/views/screans/getstart_scra.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,20 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter coin',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
+      theme: ConfigTheme().getTheme(),
+      home: const GetStartScreans(),
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
