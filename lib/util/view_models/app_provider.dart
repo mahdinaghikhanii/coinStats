@@ -10,7 +10,7 @@ class AppProvider extends ChangeNotifier {
 
   bool get brightness => _brightness;
 
-  void brightnessChange(bool checkbrightness) {
+  set brightnessChange(bool checkbrightness) {
     _brightness = checkbrightness;
     setDarkTheme(checkbrightness);
     notifyListeners();

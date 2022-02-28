@@ -5,6 +5,13 @@ class HomeScreans extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.brightness_1),
+      ),
+      body: Column(
+        children: [],
+      ),
+    );
   }
 }
