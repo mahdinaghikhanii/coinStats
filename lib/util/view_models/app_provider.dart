@@ -15,16 +15,16 @@ class AppProvider extends ChangeNotifier {
 
   set brightnessChange(bool checkbrightness) {
     _brightness = checkbrightness;
-    setDarkTheme(checkbrightness);
+    setDarkThemeOrLightTheme(checkbrightness);
     notifyListeners();
   }
 
-  setDarkTheme(bool value) async {
+  setDarkThemeOrLightTheme(bool value) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setBool(THEME_STATUS, value);
   }
 
-  getDarkTheme() async {
+  getDarkThemeOrLightTeam() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     if (preferences.getBool(THEME_STATUS) == null) {
       _brightness = false;

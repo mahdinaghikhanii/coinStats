@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 
 String faPrimaryFontFamily = 'IranYekan';
 const Color kpink = Color(0xFFDC9298);
-const Color kwhite = Color(0xFFEEEEEE);
+const Color kwhite = Color(0xFFFFFFFF);
+const Color kwhitemeloo = Color(0xFFECEFF1);
 const Color kblack = Color(0xFF424242);
 const Color kred = Color(0xFFE53935);
 const Color kpurple = Color(0xFF6A1B9A);
 const Color kyellow = Color(0xFFFF9800);
 const Color klightgrean = Color(0xFFAFB42B);
-const Color kblackappbar = Colors.black;
-const Color kblue = Color(0xFF0D47A1);
+const Color kblackappbar = Color(0xFF000000);
+const Color kblue = Color(0xFF133D8E);
 const Color korange = Color(0xFFFFA726);
-const Color grey = Color(0xFF9E9E9E);
+const Color grey = Color(0xFFF3F3F3);
 
 class Constans {
   static const double fontButtonSisze = 14;

@@ -12,7 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   isviewedgetstartscreans = sharedPreferences.getInt("VIEWED");
-  await appProvider.getDarkTheme();
+  await appProvider.getDarkThemeOrLightTeam();
   runApp(MyApp(
     appProvider: appProvider,
   ));

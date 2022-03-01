@@ -1,3 +1,4 @@
+import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,21 +8,87 @@ class HomeScreans extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final appProvider = Provider.of<AppProvider>(context);
+    // ignore: unused_local_variable
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        leading: InkWell(child: Icon(Icons.brightness_1)),
-      ),
+          elevation: 0,
+          centerTitle: false,
+          actions: const [
+            Padding(
+              padding: EdgeInsets.only(right: Constans.padding),
+              child: Icon(
+                Icons.settings,
+                size: 30,
+                color: grey,
+              ),
+            )
+          ],
+          automaticallyImplyLeading: false,
+          title: Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: Text(
+              'CoinStats',
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
+          )),
       body: Column(
         children: [
-          Checkbox(
-            onChanged: (bool? value) {
-              appProvider.brightnessChange = value!;
-            },
-            value: appProvider.brightness,
-          )
+          Padding(
+            padding: const EdgeInsets.all(Constans.padding),
+            child: Container(
+              width: size.width,
+              height: size.height * 0.20,
+              decoration: BoxDecoration(
+                  color: kblue, borderRadius: BorderRadius.circular(20)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(Constans.padding),
+                    child: Row(
+                      children: [
+                        Container(
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.transparent),
+                            child: Image.asset(
+                              'assets/icon/pngegg.png',
+                              height: size.height * 0.05,
+                            )),
+                        SizedBox(width: size.width * 0.02),
+                        Text(
+                          'Bitcoin',
+                          style: Theme.of(context).textTheme.caption,
+                        ),
+                        const Spacer(),
+                        Text(
+                          '9.97 %',
+                          style: TextStyle(color: Colors.green),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text('143.201.25'),
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 }
+/*
+Checkbox(
+            onChanged: (bool? value) {
+              appProvider.brightnessChange = value!;
+            },
+            value: appProvider.brightness,
+          )
+          */

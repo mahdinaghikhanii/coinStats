@@ -46,10 +46,10 @@ class GetStartScreans extends StatelessWidget {
                     text: TextSpan(children: [
                   TextSpan(
                       text: 'Currency',
-                      style: Theme.of(context).textTheme.headline5),
+                      style: Theme.of(context).textTheme.headlineLarge),
                   TextSpan(
                       text: ' price fluctuations',
-                      style: Theme.of(context).textTheme.headline6)
+                      style: Theme.of(context).textTheme.headline5)
                 ])),
                 const SizedBox(
                   height: 20,
@@ -57,7 +57,7 @@ class GetStartScreans extends StatelessWidget {
                 Text(
                     "The best place to see digital currency pricen\n  fluctuations",
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyText1),
+                    style: Theme.of(context).textTheme.caption),
               ],
             ),
             InkWell(
