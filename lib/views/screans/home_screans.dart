@@ -1,5 +1,6 @@
 import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
+import 'package:coinstats/views/widgets/card_top_coin.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -43,39 +44,12 @@ class HomeScreans extends StatelessWidget {
               height: size.height * 0.20,
               decoration: BoxDecoration(
                   color: kblue, borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(Constans.padding),
-                    child: Row(
-                      children: [
-                        Container(
-                            decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.transparent),
-                            child: Image.asset(
-                              'assets/icon/pngegg.png',
-                              height: size.height * 0.05,
-                            )),
-                        SizedBox(width: size.width * 0.02),
-                        Text(
-                          'Bitcoin',
-                          style: Theme.of(context).textTheme.caption,
-                        ),
-                        const Spacer(),
-                        Text(
-                          '9.97 %',
-                          style: TextStyle(color: Colors.green),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Text('143.201.25'),
-                  )
-                ],
+              child: Expanded(
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 1,
+                    itemBuilder: (context, index) => const CardTopCoin()),
               ),
             ),
           ),

@@ -16,4 +16,6 @@ class StatusModel {
     this.notice,
     this.fotalcount,
   );
+
+  static fromJson(json) {}
 }

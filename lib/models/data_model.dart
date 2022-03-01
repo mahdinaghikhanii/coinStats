@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:coinstats/models/quote_model.dart';
 
 class DataModel {

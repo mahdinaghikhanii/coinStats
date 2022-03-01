@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_if_null_operators, duplicate_ignore
+
 class UsdModel {
   final num price;
   final num volume24h;
@@ -24,6 +26,7 @@ class UsdModel {
 
   factory UsdModel.fromJson(Map<String, dynamic> json) {
     return UsdModel(
+      // ignore: prefer_if_null_operators
       price: json["price"] == null ? 0.0 : json["price"],
       volume24h: json["volume_24"] == null ? 0.0 : json["volume_24"],
       percentChange_1h:
