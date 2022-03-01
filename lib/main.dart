@@ -2,6 +2,7 @@ import 'package:coinstats/theme/configtheme.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
 import 'package:coinstats/views/screans/getstart_scra.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';

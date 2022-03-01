@@ -1,8 +1,8 @@
 import 'package:coinstats/theme/constant.dart';
 import 'package:flutter/material.dart';
 
-class CardTopCoin extends StatelessWidget {
-  const CardTopCoin({Key? key}) : super(key: key);
+class CoinListcarTopWidget extends StatelessWidget {
+  const CoinListcarTopWidget({Key? key}) : super(key: key);
 
   /* CardTopCoin(
       {required this.image, required this.nameCoin, required this.price});
@@ -34,14 +34,20 @@ class CardTopCoin extends StatelessWidget {
               ),
               Text(
                 '9.97 %',
-                style: TextStyle(color: Colors.green),
+                style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               )
             ],
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 20),
-          child: Text('143.201.25'),
+          child: Text(
+            '143.201.25',
+            style: Theme.of(context).textTheme.subtitle2,
+          ),
         )
       ],
     );

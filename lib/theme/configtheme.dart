@@ -15,8 +15,10 @@ class ConfigTheme {
       textTheme: const TextTheme(
           subtitle1: TextStyle(
               color: kblack, fontSize: 24, fontWeight: FontWeight.bold),
+          subtitle2: TextStyle(
+              color: kwhite, fontWeight: FontWeight.bold, fontSize: 20),
           button: TextStyle(color: kwhite, fontSize: Constans.fontButtonSisze),
-          caption: TextStyle(fontSize: 15, color: grey),
+          caption: TextStyle(fontSize: 20, color: grey),
           headlineLarge: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 20, color: korange),
           headline5: TextStyle(

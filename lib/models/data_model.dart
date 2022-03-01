@@ -38,7 +38,7 @@ class DataModel {
       json["slug"] as String,
       json["num_market_pairs"] as int,
       json["date_added"] as String,
-      json["tags"],
+      json["tags"] as List,
       json["max_supply"] == null ? 0 : json["max_supply"] as int,
       json["circulating_supply"] as num,
       json["total_supply"] as num,
