@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+enum themdata { dark, light }
+
 class AppProvider extends ChangeNotifier {
+  var theme = ThemeData.light;
   // ignore: constant_identifier_names
   static const THEME_STATUS = 'THEMESTATUS';
 
@@ -21,8 +24,12 @@ class AppProvider extends ChangeNotifier {
     preferences.setBool(THEME_STATUS, value);
   }
 
-  Future<bool> geTheme() async {
+  getDarkTheme() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    return preferences.getBool(THEME_STATUS) ?? false;
+    if (preferences.getBool(THEME_STATUS) == null) {
+      _brightness = false;
+    } else {
+      _brightness = preferences.getBool(THEME_STATUS) ?? false;
+    }
   }
 }

@@ -10,24 +10,15 @@ class ConfigTheme {
     return;
   }
 
-  ThemeData getTheme() {
-    return ThemeData(
-      textTheme: enPrimaryTextTheme,
-    );
-  }
-
-  TextTheme get enPrimaryTextTheme => const TextTheme(
-      button: TextStyle(color: kwhite, fontSize: Constans.fontButtonSisze),
-      bodyText1: TextStyle(fontSize: 14, color: grey),
-      headline6:
-          TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: kblack),
-      headline5:
-          TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: korange));
-
-  TextTheme get faPrimaryTextTheme => const TextTheme();
-
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
+      textTheme: const TextTheme(
+          button: TextStyle(color: kwhite, fontSize: Constans.fontButtonSisze),
+          bodyText1: TextStyle(fontSize: 14, color: grey),
+          headline6: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 20, color: kblack),
+          headline5: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 20, color: korange)),
       primarySwatch: Colors.red,
       primaryColor: isDarkTheme ? Colors.black : Colors.white,
       backgroundColor: isDarkTheme ? Colors.black : Color(0xffF1F5FB),
@@ -44,4 +35,14 @@ class ConfigTheme {
           colorScheme: isDarkTheme ? ColorScheme.dark() : ColorScheme.light()),
     );
   }
+
+  TextTheme get enPrimaryTextTheme => const TextTheme(
+      button: TextStyle(color: kwhite, fontSize: Constans.fontButtonSisze),
+      bodyText1: TextStyle(fontSize: 14, color: grey),
+      headline6:
+          TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: kblack),
+      headline5:
+          TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: korange));
+
+  TextTheme get faPrimaryTextTheme => const TextTheme();
 }

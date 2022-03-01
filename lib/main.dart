@@ -12,14 +12,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   isviewedgetstartscreans = sharedPreferences.getInt("VIEWED");
-  await appProvider.geTheme();
+  await appProvider.getDarkTheme();
   runApp(MyApp(
     appProvider: appProvider,
   ));
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({required this.appProvider});
+  const MyApp({Key? key, required this.appProvider}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -30,15 +30,16 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return ChangeNotifierProvider<AppProvider>(
       create: (
         context,
       ) =>
           appProvider,
-      child: Consumer(builder: (BuildContext context, value, Widget? child) {
+      child: Consumer<AppProvider>(builder: (context, model, child) {
+        appProvider;
         return MaterialApp(
             debugShowCheckedModeBanner: false,
-            darkTheme: ThemeData.dark(),
+            theme: ConfigTheme.themeData(model.brightness, context),
             title: 'CoinStats',
             home: isviewedgetstartscreans != 0
                 ? const GetStartScreans()
