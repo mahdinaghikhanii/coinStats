@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinstats/models/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/views/widgets/coin_list_card_widgets.dart';
+import 'package:coinstats/views/widgets/coin_logo_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CoinListWidgets extends StatelessWidget {
   const CoinListWidgets({required this.coins});
@@ -11,8 +13,6 @@ class CoinListWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    var coinIconUrl =
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png";
 
     return Scaffold(
       appBar: AppBar(
@@ -44,7 +44,7 @@ class CoinListWidgets extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                /* Padding(
                   padding: const EdgeInsets.all(Constans.padding),
                   child: Container(
                     width: size.width,
@@ -60,26 +60,28 @@ class CoinListWidgets extends StatelessWidget {
                               const CoinListcarTopWidget()),
                     ),
                   ),
+                ),*/
+                SingleChildScrollView(
+                  child: Padding(
+                      padding: const EdgeInsets.all(Constans.padding),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Charts',
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                          Spacer(),
+                          Text(
+                            'See all',
+                            style: Theme.of(context).textTheme.subtitle1,
+                          )
+                        ],
+                      )),
                 ),
-                Padding(
-                    padding: const EdgeInsets.all(Constans.padding),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Charts',
-                          style: Theme.of(context).textTheme.subtitle1,
-                        ),
-                        Spacer(),
-                        Text(
-                          'See all',
-                          style: Theme.of(context).textTheme.subtitle1,
-                        )
-                      ],
-                    )),
                 Expanded(
                     child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: 10,
+                        itemCount: 90,
                         itemBuilder: (context, index) {
                           var coin = coins[index];
                           print(index);
@@ -96,51 +98,7 @@ class CoinListWidgets extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     color: kwhite,
                                     borderRadius: BorderRadius.circular(16)),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        const SizedBox(
-                                          width: 1,
-                                        ),
-                                        SizedBox(
-                                            height: 50.0,
-                                            width: 50.0,
-                                            child: CachedNetworkImage(
-                                              imageUrl: coinIconUrl,
-                                              placeholder: (context, url) =>
-                                                  const CircularProgressIndicator(),
-                                            )),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(coins[index].symbol),
-                                            const SizedBox(
-                                              height: 4,
-                                            ),
-                                            Text(coins[index].slug),
-                                          ],
-                                        ),
-                                        Spacer(),
-                                        Column(
-                                          children: [
-                                            Text("\$" +
-                                                coins[index]
-                                                    .quoteModel
-                                                    .usdModel
-                                                    .price
-                                                    .toStringAsFixed(2))
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
+                                child: CoinLogoChartWidgets(coin: coin),
                               ),
                             ),
                           );
