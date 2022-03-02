@@ -12,7 +12,7 @@ const Color klightgrean = Color(0xFFAFB42B);
 const Color kblackappbar = Color(0xFF000000);
 const Color kblue = Color(0xFF133D8E);
 const Color korange = Color(0xFFFFA726);
-const Color grey = Color(0xFFF3F3F3);
+const Color grey = Colors.grey;
 
 class Constans {
   static const double fontButtonSisze = 14;

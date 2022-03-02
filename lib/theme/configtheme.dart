@@ -13,6 +13,7 @@ class ConfigTheme {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
       textTheme: const TextTheme(
+          bodyText1: TextStyle(fontSize: 16, color: Colors.grey),
           subtitle1: TextStyle(
               color: kblack, fontSize: 24, fontWeight: FontWeight.bold),
           subtitle2: TextStyle(
@@ -23,8 +24,9 @@ class ConfigTheme {
               fontWeight: FontWeight.bold, fontSize: 20, color: korange),
           headline5: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 20, color: kblack)),
-      primaryColor: isDarkTheme ? Colors.black : Colors.white,
+      primaryColor: isDarkTheme ? Colors.black : kwhite,
       backgroundColor: isDarkTheme ? Colors.black : kwhite,
+      scaffoldBackgroundColor: kwhite,
       indicatorColor:
           isDarkTheme ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),
       hintColor:
