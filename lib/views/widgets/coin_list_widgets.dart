@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinstats/models/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/views/widgets/coin_list_card_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CoinListWidgets extends StatelessWidget {
   const CoinListWidgets({required this.coins});
@@ -10,6 +12,7 @@ class CoinListWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    var coinIconUrl = "./node_modules/super-tiny-icons/images/svg/github.svg";
 
     return Scaffold(
       appBar: AppBar(
@@ -36,7 +39,7 @@ class CoinListWidgets extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
+            /*  Padding(
               padding: const EdgeInsets.all(Constans.padding),
               child: Container(
                 width: size.width,
@@ -52,7 +55,7 @@ class CoinListWidgets extends StatelessWidget {
                           const CoinListcarTopWidget()),
                 ),
               ),
-            ),
+            ),*/
             Expanded(
                 child: ListView.builder(
                     itemExtent: 160,
@@ -66,11 +69,11 @@ class CoinListWidgets extends StatelessWidget {
                           child: Container(
                             height: 160.0,
                             width: size.width,
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                                 color: kred,
                                 borderRadius: BorderRadius.circular(16)),
-                            child: Row(
+                            child: Column(
                               children: [],
                             ),
                           ),

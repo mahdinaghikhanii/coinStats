@@ -11,7 +11,6 @@ class DataModel {
   final int maxSupply;
   final num circulatingSupply;
   final num totalSupply;
-
   final int cmcRank;
   final String lastUpdated;
   final QuoteModel quoteModel;
