@@ -17,7 +17,7 @@ class _HomeScreansState extends State<HomeScreans> {
   void initState() {
     repository = Repository();
     _futureCoins = repository.getCoins();
-    print(_futureCoins);
+
     super.initState();
   }
 

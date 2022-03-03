@@ -11,7 +11,7 @@ class Repository {
     try {
       _dio.options.headers["X-CMC_PRO_API_KEY"] = apiKey;
       Response response = await _dio.get(currencyListingAPI);
-      print(response.data);
+
       return BigDataModele.fromJson(response.data);
     } catch (error, stackTrace) {
       // ignore: avoid_print

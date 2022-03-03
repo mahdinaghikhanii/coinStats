@@ -3,8 +3,8 @@ import 'package:coinstats/models/usd_model.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class CoinChartWidget extends StatelessWidget {
-  const CoinChartWidget({
+class Test extends StatelessWidget {
+  const Test({
     Key? key,
     required this.data,
     required this.coinPrice,
@@ -23,7 +23,7 @@ class CoinChartWidget extends StatelessWidget {
           Expanded(
             child: Container(
               padding: const EdgeInsets.only(left: 16.0),
-              height: 96.0,
+              height: 100.0,
               width: double.infinity,
               child: SfCartesianChart(
                 plotAreaBorderWidth: 0,
@@ -44,25 +44,6 @@ class CoinChartWidget extends StatelessWidget {
               ),
             ),
           ),
-          color == Colors.green
-              ? Container()
-              : Container(
-                  padding: const EdgeInsets.all(4.0),
-                  margin: const EdgeInsets.only(right: 16.0),
-                  alignment: Alignment.center,
-                  width: 72,
-                  height: 36,
-                  decoration: BoxDecoration(
-                      color: coinPrice.percentChange_7d >= 0
-                          ? Colors.green
-                          : Colors.red,
-                      borderRadius: BorderRadius.circular(16.0)),
-                  child: Text(
-                    coinPrice.percentChange_7d.toStringAsFixed(2) + "%",
-                    style: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ),
         ],
       ),
     );

@@ -2,10 +2,12 @@ import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
+import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
 import 'package:flutter/material.dart';
 
 class CoinListWidgets extends StatelessWidget {
+  // ignore: use_key_in_widget_constructors
   const CoinListWidgets({required this.coins});
   final List<DataModel> coins;
 
@@ -43,23 +45,51 @@ class CoinListWidgets extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /* Padding(
-                  padding: const EdgeInsets.all(Constans.padding),
-                  child: Container(
-                    width: size.width,
-                    height: size.height * 0.26,
-                    decoration: BoxDecoration(
-                        color: kblue, borderRadius: BorderRadius.circular(30)),
-                    child: Expanded(
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 1,
-                          itemBuilder: (context, index) =>
-                              const CoinListcarTopWidget()),
-                    ),
-                  ),
-                ),*/
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: 240,
+                  width: size.width,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        var coin = coins[index];
+                        var coinPrice = coin.quoteModel.usdModel;
+                        var data = [
+                          ChartData(
+                              value: coinPrice.percentChange_90d, year: 2160),
+                          ChartData(
+                              value: coinPrice.percentChange_60d, year: 1440),
+                          ChartData(
+                              value: coinPrice.percentChange_30d, year: 720),
+                          ChartData(
+                              value: coinPrice.percentChange_24h, year: 24),
+                          ChartData(value: coinPrice.percentChange_1h, year: 1)
+                        ];
+                        return GestureDetector(
+                          onTap: () {},
+                          child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 0, bottom: 16),
+                              child: Container(
+                                height: 200,
+                                width: 300,
+                                padding: const EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                    color: kblue,
+                                    borderRadius: BorderRadius.circular(25)),
+                                child: TopCoinListcarTopWidget(
+                                  data: data,
+                                  coin: coin,
+                                  coinPrice: coinPrice,
+                                ),
+                              )),
+                        );
+                      }),
+                ),
                 SingleChildScrollView(
                   child: Padding(
                       padding: const EdgeInsets.all(Constans.padding),
@@ -80,7 +110,7 @@ class CoinListWidgets extends StatelessWidget {
                 Expanded(
                     child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: 90,
+                        itemCount: 5,
                         itemBuilder: (context, index) {
                           var coin = coins[index];
                           var coinPrice = coin.quoteModel.usdModel;
@@ -96,8 +126,6 @@ class CoinListWidgets extends StatelessWidget {
                             ChartData(
                                 value: coinPrice.percentChange_1h, year: 1)
                           ];
-                          print(index);
-
                           return GestureDetector(
                             onTap: () {},
                             child: Padding(
@@ -112,12 +140,12 @@ class CoinListWidgets extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(16)),
                                   child: Row(
                                     children: [
-                                      CoinLogoChartWidgets(
+                                      CoinLogoWidgets(
                                         coin: coin,
                                       ),
                                       // ignore: prefer_const_constructors
                                       CoinChartWidget(
-                                        color: Colors.red,
+                                        color: kwhite,
                                         data: data,
                                         coinPrice: coinPrice,
                                       )

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 String faPrimaryFontFamily = 'IranYekan';
@@ -13,6 +14,9 @@ const Color kblackappbar = Color(0xFF000000);
 const Color kblue = Color(0xFF133D8E);
 const Color korange = Color(0xFFFFA726);
 const Color grey = Colors.grey;
+
+const IconData arrowdownleft = CupertinoIcons.arrow_down_left;
+const IconData arrowupright = CupertinoIcons.arrow_up_right;
 
 class Constans {
   static const double fontButtonSisze = 14;
