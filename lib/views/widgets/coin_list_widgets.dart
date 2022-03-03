@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
@@ -73,7 +75,7 @@ class CoinListWidgets extends StatelessWidget {
                           onTap: () {},
                           child: Padding(
                               padding: const EdgeInsets.only(
-                                  left: 20, right: 0, bottom: 16),
+                                  left: 20, right: 8, bottom: 16),
                               child: Container(
                                 height: 200,
                                 width: 300,
@@ -94,15 +96,18 @@ class CoinListWidgets extends StatelessWidget {
                   child: Padding(
                       padding: const EdgeInsets.all(Constans.padding),
                       child: Row(
+                        // ignore: prefer_const_literals_to_create_immutables
                         children: [
-                          Text(
-                            'Charts',
-                            style: Theme.of(context).textTheme.subtitle1,
-                          ),
+                          Text('Charts',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold)),
                           const Spacer(),
-                          Text(
-                            'See all',
-                            style: Theme.of(context).textTheme.subtitle1,
+                          InkWell(
+                            onTap: () {},
+                            highlightColor: grey,
+                            borderRadius: BorderRadius.circular(2),
+                            child: Text('See all',
+                                style: TextStyle(color: kblue, fontSize: 16)),
                           )
                         ],
                       )),
@@ -143,7 +148,6 @@ class CoinListWidgets extends StatelessWidget {
                                       CoinLogoWidgets(
                                         coin: coin,
                                       ),
-                                      // ignore: prefer_const_constructors
                                       CoinChartWidget(
                                         color: kwhite,
                                         data: data,

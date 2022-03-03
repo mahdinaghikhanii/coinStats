@@ -13,6 +13,9 @@ class ConfigTheme {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
       textTheme: const TextTheme(
+          headline4: TextStyle(fontSize: 14, color: Colors.grey),
+          headline6: TextStyle(
+              fontSize: 14, color: kblack, fontWeight: FontWeight.bold),
           bodyText1: TextStyle(fontSize: 16, color: Colors.grey),
           subtitle1: TextStyle(
               color: kblack, fontSize: 24, fontWeight: FontWeight.bold),

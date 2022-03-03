@@ -16,9 +16,11 @@ class CoinLogoWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     var coinIconUrl =
         "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
@@ -39,11 +41,20 @@ class CoinLogoWidgets extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(coin.symbol),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              coin.name,
+              style: textTheme.headline6,
+            ),
             const SizedBox(
               height: 4,
             ),
-            Text(coin.slug),
+            Text(
+              coin.symbol,
+              style: textTheme.headline4,
+            )
           ],
         ),
 

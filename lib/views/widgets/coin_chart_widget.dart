@@ -16,55 +16,47 @@ class CoinChartWidget extends StatelessWidget {
   final Color color;
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.only(left: 16.0),
-              height: 96.0,
-              width: double.infinity,
-              child: SfCartesianChart(
-                plotAreaBorderWidth: 0,
-                primaryXAxis: CategoryAxis(isVisible: false),
-                primaryYAxis: CategoryAxis(isVisible: false),
-                legend: Legend(isVisible: false),
-                tooltipBehavior: TooltipBehavior(enable: false),
-                series: <ChartSeries<ChartData, String>>[
-                  LineSeries<ChartData, String>(
-                    color: coinPrice.percentChange_7d >= 0
-                        ? Colors.green
-                        : Colors.red,
-                    dataSource: data,
-                    xValueMapper: (ChartData sales, _) => sales.year.toString(),
-                    yValueMapper: (ChartData sales, _) => sales.value,
-                  ),
-                ],
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      Expanded(
+        child: Container(
+          padding: const EdgeInsets.only(left: 16.0),
+          height: 96.0,
+          width: double.infinity,
+          child: SfCartesianChart(
+            plotAreaBorderWidth: 0,
+            primaryXAxis: CategoryAxis(isVisible: false),
+            primaryYAxis: CategoryAxis(isVisible: false),
+            legend: Legend(isVisible: false),
+            tooltipBehavior: TooltipBehavior(enable: false),
+            series: <ChartSeries<ChartData, String>>[
+              LineSeries<ChartData, String>(
+                color:
+                    coinPrice.percentChange_7d >= 0 ? Colors.green : Colors.red,
+                dataSource: data,
+                xValueMapper: (ChartData sales, _) => sales.year.toString(),
+                yValueMapper: (ChartData sales, _) => sales.value,
               ),
-            ),
+            ],
           ),
-          color == Colors.green
-              ? Container()
-              : Container(
-                  padding: const EdgeInsets.all(4.0),
-                  margin: const EdgeInsets.only(right: 16.0),
-                  alignment: Alignment.center,
-                  width: 72,
-                  height: 36,
-                  decoration: BoxDecoration(
-                      color: coinPrice.percentChange_7d >= 0
-                          ? Colors.green
-                          : Colors.red,
-                      borderRadius: BorderRadius.circular(16.0)),
-                  child: Text(
-                    coinPrice.percentChange_7d.toStringAsFixed(2) + "%",
-                    style: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ),
-        ],
+        ),
       ),
-    );
+      Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "\$" + coinPrice.price.toStringAsFixed(2).toString(),
+              style: textTheme.headline6,
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Text(coinPrice.percentChange_7d.toStringAsFixed(2) + "%",
+                style: textTheme.headline4),
+          ])
+    ]));
   }
 }

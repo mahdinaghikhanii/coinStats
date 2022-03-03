@@ -81,7 +81,8 @@ class TopCoinListcarTopWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 15),
             child: Text(
-              "\$" + coinPrice.price.toStringAsExponential(2),
+              "\$" +
+                  coin.quoteModel.usdModel.price.toStringAsFixed(2).toString(),
               style: textTheme.subtitle2,
             ),
           ),
