@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinstats/models/chart_data_model.dart';
-import 'package:coinstats/models/data_model.dart';
+import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/views/widgets/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../models/usd_model.dart';
+import '../../models/bringcoins_model/usd_model.dart';
 
 // ignore: must_be_immutable
 class TopCoinListcarTopWidget extends StatelessWidget {

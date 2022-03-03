@@ -1,1 +1,1 @@
-export 'big_data_modele.dart';
+export 'bringcoins_model/big_data_modele.dart';

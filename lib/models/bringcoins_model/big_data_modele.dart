@@ -1,5 +1,5 @@
-import 'package:coinstats/models/data_model.dart';
-import 'package:coinstats/models/status_model.dart';
+import 'package:coinstats/models/bringcoins_model/data_model.dart';
+import 'package:coinstats/models/bringcoins_model/status_model.dart';
 
 class BigDataModele {
   final StatusModel statusModel;

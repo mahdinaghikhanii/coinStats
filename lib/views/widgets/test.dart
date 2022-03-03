@@ -1,5 +1,5 @@
 import 'package:coinstats/models/chart_data_model.dart';
-import 'package:coinstats/models/usd_model.dart';
+import 'package:coinstats/models/bringcoins_model/usd_model.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 

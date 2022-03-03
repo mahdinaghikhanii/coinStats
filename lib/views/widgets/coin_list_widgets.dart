@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:coinstats/models/chart_data_model.dart';
-import 'package:coinstats/models/data_model.dart';
+import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
+import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
 import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
@@ -103,7 +104,13 @@ class CoinListWidgets extends StatelessWidget {
                                   fontSize: 20, fontWeight: FontWeight.bold)),
                           const Spacer(),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          AllCoinsScreans(coins: coins)));
+                            },
                             highlightColor: grey,
                             borderRadius: BorderRadius.circular(2),
                             child: Text('See all',

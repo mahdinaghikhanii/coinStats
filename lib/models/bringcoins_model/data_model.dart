@@ -1,4 +1,4 @@
-import 'package:coinstats/models/quote_model.dart';
+import 'package:coinstats/models/bringcoins_model/quote_model.dart';
 
 class DataModel {
   final int id;

@@ -1,4 +1,4 @@
-import 'package:coinstats/models/big_data_modele.dart';
+import 'package:coinstats/models/bringcoins_model/big_data_modele.dart';
 import 'package:dio/dio.dart';
 
 class Repository {
