@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
+import 'package:coinstats/views/dialog/dialogsetting_screans.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
 import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
@@ -22,13 +22,23 @@ class CoinListWidgets extends StatelessWidget {
       appBar: AppBar(
           elevation: 0,
           centerTitle: false,
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(right: Constans.padding),
-              child: Icon(
-                Icons.settings,
-                size: 30,
-                color: grey,
+          actions: [
+            InkWell(
+              onTap: () {
+                showDialog(
+                    context: context,
+                    builder: (
+                      context,
+                    ) =>
+                        const DialogSettingScreans());
+              },
+              child: Padding(
+                padding: EdgeInsets.only(right: Constans.padding),
+                child: Icon(
+                  Icons.settings,
+                  size: 30,
+                  color: grey,
+                ),
               ),
             )
           ],
