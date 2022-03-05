@@ -34,7 +34,7 @@ class ConfigTheme {
               fontSize: Constans.fontButtonSisze),
           caption:
               TextStyle(fontSize: 20, color: isDarkTheme ? kwhite : kblack),
-          headlineLarge: TextStyle(
+          headlineLarge: const TextStyle(
               fontWeight: FontWeight.bold, fontSize: 20, color: korange),
           headline5: TextStyle(
               fontWeight: FontWeight.bold,

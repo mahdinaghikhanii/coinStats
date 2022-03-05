@@ -19,6 +19,7 @@ class CoinListWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // ignore: unused_local_variable
     final textTheme = Theme.of(context).textTheme;
     final appProvider = Provider.of<AppProvider>(context);
 
@@ -108,39 +109,37 @@ class CoinListWidgets extends StatelessWidget {
                         );
                       }),
                 ),
-                SingleChildScrollView(
-                  child: Padding(
-                      padding: const EdgeInsets.all(Constans.padding),
-                      child: Row(
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          Text('Charts',
+                Padding(
+                    padding: const EdgeInsets.all(Constans.padding),
+                    child: Row(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        Text('Charts',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        const Spacer(),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        AllCoinsScreans(coins: coins)));
+                          },
+                          highlightColor: grey,
+                          borderRadius: BorderRadius.circular(2),
+                          child: Text('See all',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          const Spacer(),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          AllCoinsScreans(coins: coins)));
-                            },
-                            highlightColor: grey,
-                            borderRadius: BorderRadius.circular(2),
-                            child: Text('See all',
-                                style: TextStyle(
-                                    color:
-                                        appProvider.brightness ? kwhite : kblue,
-                                    fontSize: 16)),
-                          )
-                        ],
-                      )),
-                ),
+                                  color:
+                                      appProvider.brightness ? kwhite : kblue,
+                                  fontSize: 16)),
+                        )
+                      ],
+                    )),
                 Expanded(
                     child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: 5,
+                        itemCount: 4,
                         itemBuilder: (context, index) {
                           var coin = coins[index];
                           var coinPrice = coin.quoteModel.usdModel;
