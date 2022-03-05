@@ -1,3 +1,4 @@
+import 'package:coinstats/main.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/theme/constant.dart';
@@ -57,14 +58,15 @@ class AllCoinsScreans extends StatelessWidget {
                     width: size.width,
                     padding: const EdgeInsets.only(top: 10),
                     decoration: BoxDecoration(
-                        color: kwhite, borderRadius: BorderRadius.circular(16)),
+                        color: appProvider.brightness ? kblack : kwhite,
+                        borderRadius: BorderRadius.circular(16)),
                     child: Row(
                       children: [
                         CoinLogoWidgets(
                           coin: coin,
                         ),
                         CoinChartWidget(
-                          color: kwhite,
+                          color: appProvider.brightness ? kwhite : kblack,
                           data: data,
                           coinPrice: coinPrice,
                         )

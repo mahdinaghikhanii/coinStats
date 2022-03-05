@@ -2,12 +2,14 @@
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
+import 'package:coinstats/util/view_models/app_provider.dart';
 import 'package:coinstats/views/dialog/dialogsetting_screans.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
 import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CoinListWidgets extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
@@ -17,6 +19,8 @@ class CoinListWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final textTheme = Theme.of(context).textTheme;
+    final appProvider = Provider.of<AppProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -92,7 +96,8 @@ class CoinListWidgets extends StatelessWidget {
                                 width: 300,
                                 padding: const EdgeInsets.only(top: 10),
                                 decoration: BoxDecoration(
-                                    color: kblue,
+                                    color:
+                                        appProvider.brightness ? kblue : kblue,
                                     borderRadius: BorderRadius.circular(25)),
                                 child: TopCoinListcarTopWidget(
                                   data: data,
@@ -124,7 +129,10 @@ class CoinListWidgets extends StatelessWidget {
                             highlightColor: grey,
                             borderRadius: BorderRadius.circular(2),
                             child: Text('See all',
-                                style: TextStyle(color: kblue, fontSize: 16)),
+                                style: TextStyle(
+                                    color:
+                                        appProvider.brightness ? kwhite : kblue,
+                                    fontSize: 16)),
                           )
                         ],
                       )),
@@ -158,7 +166,9 @@ class CoinListWidgets extends StatelessWidget {
                                   width: size.width,
                                   padding: const EdgeInsets.only(top: 10),
                                   decoration: BoxDecoration(
-                                      color: kwhite,
+                                      color: appProvider.brightness
+                                          ? kblack
+                                          : kwhite,
                                       borderRadius: BorderRadius.circular(16)),
                                   child: Row(
                                     children: [

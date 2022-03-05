@@ -12,24 +12,37 @@ class ConfigTheme {
 
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
-      textTheme: const TextTheme(
-          headline4: TextStyle(fontSize: 14, color: Colors.grey),
+      textTheme: TextTheme(
+          headline4:
+              TextStyle(fontSize: 14, color: isDarkTheme ? kwhite : kblack),
           headline6: TextStyle(
-              fontSize: 14, color: kblack, fontWeight: FontWeight.bold),
-          bodyText1: TextStyle(fontSize: 16, color: Colors.grey),
+              fontSize: 14,
+              color: isDarkTheme ? kwhite : kblack,
+              fontWeight: FontWeight.bold),
+          bodyText1:
+              TextStyle(fontSize: 16, color: isDarkTheme ? kwhite : kblack),
           subtitle1: TextStyle(
-              color: kblack, fontSize: 24, fontWeight: FontWeight.bold),
+              color: isDarkTheme ? kwhite : kblack,
+              fontSize: 24,
+              fontWeight: FontWeight.bold),
           subtitle2: TextStyle(
-              color: kwhite, fontWeight: FontWeight.bold, fontSize: 18),
-          button: TextStyle(color: kwhite, fontSize: Constans.fontButtonSisze),
-          caption: TextStyle(fontSize: 20, color: grey),
+              color: isDarkTheme ? kwhite : kblack,
+              fontWeight: FontWeight.bold,
+              fontSize: 18),
+          button: TextStyle(
+              color: isDarkTheme ? kwhite : kblack,
+              fontSize: Constans.fontButtonSisze),
+          caption:
+              TextStyle(fontSize: 20, color: isDarkTheme ? kwhite : kblack),
           headlineLarge: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 20, color: korange),
           headline5: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20, color: kblack)),
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: isDarkTheme ? kwhite : kblack)),
       primaryColor: isDarkTheme ? Colors.black : kwhite,
       backgroundColor: isDarkTheme ? Colors.black : kwhite,
-      scaffoldBackgroundColor: kwhite,
+      scaffoldBackgroundColor: isDarkTheme ? kblack : kwhite,
       indicatorColor:
           isDarkTheme ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),
       hintColor:
