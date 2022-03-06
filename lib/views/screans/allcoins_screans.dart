@@ -43,11 +43,11 @@ class AllCoinsScreans extends StatelessWidget {
             var coin = coins[index];
             var coinPrice = coin.quoteModel.usdModel;
             var data = [
-              ChartData(value: coinPrice.percentChange_90d, year: 2160),
-              ChartData(value: coinPrice.percentChange_60d, year: 1440),
-              ChartData(value: coinPrice.percentChange_30d, year: 720),
-              ChartData(value: coinPrice.percentChange_24h, year: 24),
-              ChartData(value: coinPrice.percentChange_1h, year: 1)
+              ChartData(coinPrice.percentChange_90d, 2160),
+              ChartData(coinPrice.percentChange_60d, 1440),
+              ChartData(coinPrice.percentChange_30d, 720),
+              ChartData(coinPrice.percentChange_24h, 24),
+              ChartData(coinPrice.percentChange_1h, 1)
             ];
             return GestureDetector(
               onTap: () {},
