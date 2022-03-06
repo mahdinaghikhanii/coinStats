@@ -11,15 +11,18 @@ class ConditionButtonWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final appProvider = Provider.of<AppProvider>(context);
-    return Container(
-      width: size.width * 0.2,
-      height: size.height * 0.05,
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(10), color: kblue),
-      child: Center(
-        child: Text(
-          time,
-          style: const TextStyle(color: kwhite, fontWeight: FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Container(
+        width: size.width * 0.14,
+        height: size.height * 0.04,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: kblue),
+        child: Center(
+          child: Text(
+            time,
+            style: const TextStyle(color: kwhite, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );

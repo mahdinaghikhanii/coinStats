@@ -22,6 +22,7 @@ class CoinDetailsScreans extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         foregroundColor: appProvider.brightness ? kwhite : kblack,
         title: Text(
           coin.name + " / " + coin.symbol,
@@ -32,11 +33,54 @@ class CoinDetailsScreans extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ConditionButtonWidgets(time: '1h'),
-              ],
+            const SizedBox(
+              height: 40,
+            ),
+            Text(
+              "\$" +
+                  coin.quoteModel.usdModel.price.toStringAsFixed(2).toString(),
+              style: textTheme.subtitle1,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    coin.quoteModel.usdModel.percentChange_7d >= 0
+                        ? arrowupright
+                        : arrowdownleft,
+                    color: coin.quoteModel.usdModel.percentChange_7d >= 0
+                        ? const Color.fromARGB(255, 17, 218, 50)
+                        : Colors.red,
+                  ),
+                  Text(
+                      coin.quoteModel.usdModel.percentChange_7d
+                              .toStringAsFixed(2) +
+                          "%",
+                      style: TextStyle(
+                          color: coin.quoteModel.usdModel.percentChange_7d >= 0
+                              ? Colors.green
+                              : Colors.red,
+                          fontSize: 16)),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(Constans.padding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ConditionButtonWidgets(time: '1h'),
+                  ConditionButtonWidgets(time: '1d'),
+                  ConditionButtonWidgets(time: '1w'),
+                  ConditionButtonWidgets(time: '1m'),
+                  ConditionButtonWidgets(time: '1y'),
+                ],
+              ),
             )
           ],
         ),
