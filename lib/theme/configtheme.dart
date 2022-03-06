@@ -26,7 +26,7 @@ class ConfigTheme {
               fontSize: 24,
               fontWeight: FontWeight.bold),
           subtitle2: TextStyle(
-              color: isDarkTheme ? kwhite : kblack,
+              color: isDarkTheme ? kwhite : kwhite,
               fontWeight: FontWeight.bold,
               fontSize: 18),
           button: TextStyle(

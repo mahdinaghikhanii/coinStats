@@ -56,7 +56,7 @@ class TopCoinListcarTopWidget extends StatelessWidget {
               ),
               Text(
                 coin.name,
-                style: textTheme.bodyLarge,
+                style: textTheme.subtitle2,
               ),
               const Spacer(),
               Icon(

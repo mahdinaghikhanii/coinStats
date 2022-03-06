@@ -5,6 +5,7 @@ import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
 import 'package:coinstats/views/dialog/dialogsetting_screans.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
+import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
 import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
@@ -88,7 +89,14 @@ class CoinListWidgets extends StatelessWidget {
                           ChartData(value: coinPrice.percentChange_1h, year: 1)
                         ];
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CoinDetailsScreans(
+                                          coin: coin,
+                                        )));
+                          },
                           child: Padding(
                               padding: const EdgeInsets.only(
                                   left: 20, right: 8, bottom: 16),
@@ -126,13 +134,17 @@ class CoinListWidgets extends StatelessWidget {
                                     builder: (context) =>
                                         AllCoinsScreans(coins: coins)));
                           },
-                          highlightColor: grey,
+                          highlightColor: kred,
                           borderRadius: BorderRadius.circular(2),
-                          child: Text('See all',
-                              style: TextStyle(
-                                  color:
-                                      appProvider.brightness ? kwhite : kblue,
-                                  fontSize: 16)),
+                          child: SizedBox(
+                            height: 25,
+                            width: 50,
+                            child: Text('See all',
+                                style: TextStyle(
+                                    color:
+                                        appProvider.brightness ? kwhite : kblue,
+                                    fontSize: 16)),
+                          ),
                         )
                       ],
                     )),
@@ -156,7 +168,14 @@ class CoinListWidgets extends StatelessWidget {
                                 value: coinPrice.percentChange_1h, year: 1)
                           ];
                           return GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CoinDetailsScreans(
+                                            coin: coin,
+                                          )));
+                            },
                             child: Padding(
                               padding: const EdgeInsets.only(
                                   left: 20, right: 20, bottom: 16),
