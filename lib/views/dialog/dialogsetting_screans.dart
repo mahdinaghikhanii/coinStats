@@ -35,21 +35,22 @@ class DialogSettingScreans extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 10),
+                      padding: const EdgeInsets.only(top: 0),
                       child: Center(
                           child: Row(
                         children: [
                           Icon(appProvider.brightness
                               ? Icons.light_mode
                               : Icons.dark_mode),
-                          const SizedBox(
-                            width: 8,
+                          SizedBox(
+                            width: size.width * 0.02,
                           ),
                           Text(appProvider.brightness
                               ? "Light Mood"
                               : "Dark mood"),
                           const Spacer(),
                           Switch(
+                            activeColor: kwhite,
                             value: appProvider.brightness,
                             onChanged: (bool? value) {
                               appProvider.brightnessChange = value!;
@@ -68,7 +69,7 @@ class DialogSettingScreans extends StatelessWidget {
                           children: [
                             Icon(Icons.person),
                             SizedBox(
-                              width: 8,
+                              width: size.width * 0.02,
                             ),
                             Text('About us'),
                             Spacer(),
