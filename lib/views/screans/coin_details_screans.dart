@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
-import 'dart:math';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
+import 'package:coinstats/views/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../widgets/coin_randomed_chart_widgets.dart';
 
 class CoinDetailsScreans extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
@@ -13,6 +12,7 @@ class CoinDetailsScreans extends StatelessWidget {
   final DataModel coin;
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var coinIconUrl =
         "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
     var coinPrice = coin.quoteModel.usdModel;
@@ -69,9 +69,6 @@ class CoinDetailsScreans extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            CoinRandomedChartWidgets(
-              coin: coin,
-            )
           ],
         ),
       ),

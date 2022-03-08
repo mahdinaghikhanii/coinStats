@@ -60,8 +60,8 @@ class TopCoinListcarTopWidget extends StatelessWidget {
               ),
               const Spacer(),
               Icon(
-                coinPrice.percentChange_7d >= 0 ? arrowupright : arrowdownleft,
-                color: coinPrice.percentChange_7d >= 0
+                coinPrice.percentChange_1h >= 0 ? arrowupright : arrowdownleft,
+                color: coinPrice.percentChange_1h >= 0
                     ? const Color.fromARGB(255, 17, 218, 50)
                     : Colors.red,
               ),
@@ -69,9 +69,9 @@ class TopCoinListcarTopWidget extends StatelessWidget {
                 width: 5,
               ),
               Text(
-                coinPrice.percentChange_7d.toStringAsFixed(2) + "%",
+                coinPrice.percentChange_1h.toStringAsFixed(2) + "%",
                 style: TextStyle(
-                    color: coinPrice.percentChange_7d >= 0
+                    color: coinPrice.percentChange_1h >= 0
                         ? const Color.fromARGB(255, 17, 218, 50)
                         : Colors.red,
                     fontWeight: FontWeight.bold),
@@ -89,7 +89,7 @@ class TopCoinListcarTopWidget extends StatelessWidget {
           Test(
             data: data,
             coinPrice: coinPrice,
-            color: coinPrice.percentChange_7d >= 0
+            color: coinPrice.percentChange_1h >= 0
                 ? const Color.fromARGB(255, 17, 218, 50)
                 : Colors.red,
           )

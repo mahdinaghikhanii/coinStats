@@ -29,8 +29,18 @@ class CoinListWidgets extends StatelessWidget {
           elevation: 0,
           centerTitle: false,
           actions: [
-            InkWell(
-              onTap: () {
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.search,
+                  color: grey,
+                  size: 30,
+                )),
+            SizedBox(
+              width: 0,
+            ),
+            IconButton(
+              onPressed: () {
                 showDialog(
                     context: context,
                     builder: (
@@ -38,13 +48,10 @@ class CoinListWidgets extends StatelessWidget {
                     ) =>
                         const DialogSettingScreans());
               },
-              child: Padding(
-                padding: EdgeInsets.only(right: Constans.padding),
-                child: Icon(
-                  Icons.settings,
-                  size: 30,
-                  color: grey,
-                ),
+              icon: Icon(
+                Icons.settings,
+                size: 30,
+                color: grey,
               ),
             )
           ],
@@ -132,14 +139,18 @@ class CoinListWidgets extends StatelessWidget {
                           },
                           highlightColor: kred,
                           borderRadius: BorderRadius.circular(2),
-                          child: SizedBox(
-                            height: 25,
-                            width: 50,
-                            child: Text('See all',
-                                style: TextStyle(
-                                    color:
-                                        appProvider.brightness ? kwhite : kblue,
-                                    fontSize: 16)),
+                          child: Center(
+                            child: SizedBox(
+                              height: 30,
+                              width: 60,
+                              child: Text('See all',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: appProvider.brightness
+                                          ? kwhite
+                                          : kblue,
+                                      fontSize: 16)),
+                            ),
                           ),
                         )
                       ],

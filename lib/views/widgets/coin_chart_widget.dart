@@ -54,7 +54,7 @@ class CoinChartWidget extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            Text(coinPrice.percentChange_7d.toStringAsFixed(2) + "%",
+            Text(coinPrice.percentChange_1h.toStringAsFixed(2) + "%",
                 style: textTheme.headline4),
           ])
     ]));
