@@ -13,8 +13,7 @@ class CoinDetailsScreans extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    var coinIconUrl =
-        "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
+
     var coinPrice = coin.quoteModel.usdModel;
 
     final appProvider = Provider.of<AppProvider>(context);

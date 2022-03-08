@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:coinstats/models/bringcoins_model/coin_search.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
@@ -30,7 +31,10 @@ class CoinListWidgets extends StatelessWidget {
           centerTitle: false,
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showSearch(
+                      context: context, delegate: CoinSearch(coin: coins));
+                },
                 icon: Icon(
                   Icons.search,
                   color: grey,
