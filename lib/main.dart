@@ -1,5 +1,6 @@
 import 'package:coinstats/theme/configtheme.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
+
 import 'package:coinstats/views/screans/getstart_scra.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
 
@@ -31,13 +32,15 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<AppProvider>(
-      create: (
-        context,
-      ) =>
-          appProvider,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AppProvider>(
+            create: (
+          context,
+        ) =>
+                appProvider)
+      ],
       child: Consumer<AppProvider>(builder: (context, model, child) {
-        appProvider;
         return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ConfigTheme.themeData(model.brightness, context),

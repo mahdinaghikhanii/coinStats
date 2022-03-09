@@ -1,15 +1,23 @@
-import 'dart:html';
-
+import 'package:coinstats/main.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CoinSearch extends SearchDelegate<String> {
   CoinSearch({required this.coin});
-  late List<DataModel> coin;
+  List<DataModel> coin;
+
+  var listSearch = [];
 
   @override
-  List<Widget> buildActions(BuildContext context) =>
-      [IconButton(onPressed: () {}, icon: Icon(Icons.clear))];
+  List<Widget> buildActions(BuildContext context) => [
+        IconButton(
+            onPressed: () {
+              query = '';
+            },
+            icon: const Icon(Icons.clear))
+      ];
 
   @override
   Widget buildLeading(BuildContext context) => IconButton(
@@ -40,15 +48,29 @@ class CoinSearch extends SearchDelegate<String> {
   }
 
   Widget buildSuggestionsSuccess() {
+    listSearch = query.isEmpty
+        ? []
+        : appProvider.my
+            .where(((element) => element.startsWith(query)))
+            .toList();
     return ListView.builder(
-      itemCount: coin.length,
       itemBuilder: (context, index) {
-        var coins = coin[index];
         return ListTile(
-          leading: Icon(Icons.currency_bitcoin),
-          title: Text(coins.symbol),
+          /*   leading: SizedBox(
+            width: 35,
+            child: CachedNetworkImage(
+              imageUrl: ((Constans.coinIconUrl + coins.symbol + ".png")
+                  .toLowerCase()),
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) =>
+                  SvgPicture.asset('assets/icon/dollar.svg'),
+            ),
+          ),*/
+
+          title: Text(listSearch[index].toString()),
         );
       },
+      itemCount: listSearch.length,
     );
   }
 }

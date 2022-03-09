@@ -11,9 +11,6 @@ class CoinLogoWidgets extends StatelessWidget {
     Key? key,
     required this.coin,
   }) : super(key: key);
-
-  text() {}
-
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;

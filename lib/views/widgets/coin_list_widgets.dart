@@ -87,7 +87,9 @@ class CoinListWidgets extends StatelessWidget {
                       itemCount: 3,
                       itemBuilder: (context, index) {
                         var coin = coins[index];
+
                         var coinPrice = coin.quoteModel.usdModel;
+
                         var data = [
                           ChartData(coinPrice.percentChange_90d, 2160),
                           ChartData(coinPrice.percentChange_60d, 1440),
@@ -162,10 +164,13 @@ class CoinListWidgets extends StatelessWidget {
                 Expanded(
                     child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: 4,
+                        itemCount: 3,
                         itemBuilder: (context, index) {
+                          print(index);
                           var coin = coins[index];
                           var coinPrice = coin.quoteModel.usdModel;
+                          var coinname = coin.name;
+                          appProvider.my.addAll([coins[index].name]);
                           var data = [
                             ChartData(coinPrice.percentChange_90d, 2160),
                             ChartData(coinPrice.percentChange_60d, 1440),

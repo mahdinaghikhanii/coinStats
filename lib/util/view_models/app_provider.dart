@@ -32,4 +32,8 @@ class AppProvider extends ChangeNotifier {
       _brightness = preferences.getBool(THEME_STATUS) ?? false;
     }
   }
+
+  List<String> _name = [];
+
+  List<String> get my => _name;
 }

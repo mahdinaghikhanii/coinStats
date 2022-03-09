@@ -6,6 +6,8 @@ import 'package:coinstats/views/widgets/coin_chart_widget.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
 import 'package:flutter/material.dart';
 
+import '../dialog/dialogsetting_screans.dart';
+
 class AllCoinsScreans extends StatelessWidget {
   const AllCoinsScreans({Key? key, required this.coins}) : super(key: key);
   final List<DataModel> coins;
@@ -18,15 +20,24 @@ class AllCoinsScreans extends StatelessWidget {
       appBar: AppBar(
           elevation: 0,
           centerTitle: false,
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.only(right: Constans.padding),
-              child: Icon(
-                Icons.settings,
-                size: 30,
-                color: grey,
-              ),
-            )
+                padding: const EdgeInsets.only(right: Constans.padding),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.settings,
+                    size: 30,
+                    color: grey,
+                  ),
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (
+                          context,
+                        ) =>
+                            const DialogSettingScreans());
+                  },
+                ))
           ],
           automaticallyImplyLeading: false,
           title: Padding(
