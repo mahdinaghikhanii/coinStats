@@ -1,6 +1,6 @@
 import 'package:coinstats/theme/configtheme.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
-import 'package:coinstats/util/view_models/connectivity_provider.dart';
+
 import 'package:coinstats/views/screans/check_network_screans.dart';
 
 import 'package:coinstats/views/screans/getstart_scra.dart';
@@ -12,12 +12,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 int? isviewedgetstartscreans;
 AppProvider appProvider = AppProvider();
-ConnectivityChangeNotifier changeNotifier = ConnectivityChangeNotifier();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   isviewedgetstartscreans = sharedPreferences.getInt("VIEWED");
-  changeNotifier.initialLoad();
 
   await appProvider.getDarkThemeOrLightTeam();
   runApp(MyApp(
@@ -37,11 +36,8 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    changeNotifier.initialLoad();
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<ConnectivityChangeNotifier>(
-            create: (context) => changeNotifier),
         ChangeNotifierProvider<AppProvider>(
             create: (
           context,

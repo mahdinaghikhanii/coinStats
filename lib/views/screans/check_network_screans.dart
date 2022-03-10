@@ -1,7 +1,6 @@
 import 'package:coinstats/theme/constant.dart';
-import 'package:coinstats/util/view_models/connectivity_provider.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,11 +11,12 @@ class CheckNetWork extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final textTheme = Theme.of(context).textTheme;
-    return Scaffold(body: Consumer<ConnectivityChangeNotifier>(builder:
-        (BuildContext context,
-            ConnectivityChangeNotifier connectivityChangeNotifier,
-            Widget? child) {
-      return Scaffold(
+    return WillPopScope(
+      onWillPop: () async {
+        ScaffoldMessenger.of(context);
+        return false;
+      },
+      child: Scaffold(
         backgroundColor: kblue,
         body: Center(
           child: Column(
@@ -42,11 +42,15 @@ class CheckNetWork extends StatelessWidget {
                 ],
               ),
               InkWell(
+                borderRadius: BorderRadius.circular(10),
                 onTap: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => HomeScreans()));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreans()));
                 },
-                child: Container(
+                child: SizedBox(
+                  width: size.width * 0.35,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +73,7 @@ class CheckNetWork extends StatelessWidget {
             ],
           ),
         ),
-      );
-    }));
+      ),
+    );
   }
 }
