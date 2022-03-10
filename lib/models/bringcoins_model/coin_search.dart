@@ -1,8 +1,6 @@
 import 'package:coinstats/main.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
-
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CoinSearch extends SearchDelegate<String> {
   CoinSearch({required this.coin});

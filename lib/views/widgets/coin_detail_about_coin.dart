@@ -1,4 +1,4 @@
-import 'package:coinstats/models/bringcoins_model/fetch_coins.dart';
+import 'package:coinstats/main.dart';
 import 'package:coinstats/theme/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +18,7 @@ class CoinDetailAboutCoin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final textTheme = Theme.of(context).textTheme;
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
@@ -33,9 +34,12 @@ class CoinDetailAboutCoin extends StatelessWidget {
             children: [
               Text(
                 deetial,
-                style: textTheme.subtitle2,
+                style: TextStyle(
+                    color: appProvider.brightness ? kwhite : kwhite,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
               ),
-              Spacer(),
+              const Spacer(),
               Icon(icon),
               Text(datachcart)
             ],

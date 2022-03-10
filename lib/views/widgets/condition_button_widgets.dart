@@ -1,15 +1,18 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ConditionButtonWidgets extends StatelessWidget {
-  ConditionButtonWidgets({required this.time});
+  const ConditionButtonWidgets({required this.time});
   final String time;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // ignore: unused_local_variable
     final appProvider = Provider.of<AppProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(5.0),

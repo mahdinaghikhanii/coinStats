@@ -2,6 +2,7 @@ import 'package:coinstats/main.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/theme/constant.dart';
+import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +62,12 @@ class AllCoinsScreans extends StatelessWidget {
               ChartData(coinPrice.percentChange_1h, 1)
             ];
             return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CoinDetailsScreans(coin: coin)));
+              },
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, bottom: 16),
                 child: Container(

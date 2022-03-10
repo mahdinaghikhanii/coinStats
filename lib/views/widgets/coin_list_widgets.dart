@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_local_variable
 import 'package:coinstats/models/bringcoins_model/coin_search.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
@@ -19,9 +19,10 @@ class CoinListWidgets extends StatelessWidget {
   final List<DataModel> coins;
 
   @override
+  // ignore: duplicate_ignore
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // ignore: unused_local_variable
+
     final textTheme = Theme.of(context).textTheme;
     final appProvider = Provider.of<AppProvider>(context);
 
@@ -166,7 +167,6 @@ class CoinListWidgets extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: 3,
                         itemBuilder: (context, index) {
-                          print(index);
                           var coin = coins[index];
                           var coinPrice = coin.quoteModel.usdModel;
                           var coinname = coin.name;

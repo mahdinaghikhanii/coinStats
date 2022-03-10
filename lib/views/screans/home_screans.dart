@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:coinstats/models/models.dart';
 import 'package:coinstats/util/enum/repository/repository.dart';
 import 'package:coinstats/views/widgets/coin_list_widgets.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreans extends StatefulWidget {
@@ -13,11 +15,25 @@ class HomeScreans extends StatefulWidget {
 class _HomeScreansState extends State<HomeScreans> {
   late Future<BigDataModele> _futureCoins;
   late Repository repository;
+
+  ConnectivityResult _connectionStatus = ConnectivityResult.none;
+  final Connectivity _connectivity = Connectivity();
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  bool hasInternet = false;
+
   @override
   void initState() {
+    //this part for check wifi or data mobile
+
+    // this part for req server and respone for Datamodel
     repository = Repository();
     _futureCoins = repository.getCoins();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
