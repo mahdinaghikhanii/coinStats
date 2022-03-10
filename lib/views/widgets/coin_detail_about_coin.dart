@@ -35,7 +35,7 @@ class CoinDetailAboutCoin extends StatelessWidget {
               Text(
                 deetial,
                 style: TextStyle(
-                    color: appProvider.brightness ? kwhite : kwhite,
+                    color: appProvider.brightness ? kwhite : kblack,
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               ),

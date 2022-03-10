@@ -48,50 +48,54 @@ class AllCoinsScreans extends StatelessWidget {
               style: Theme.of(context).textTheme.subtitle1,
             ),
           )),
-      body: ListView.builder(
-          shrinkWrap: true,
-          itemCount: coins.length,
-          itemBuilder: (context, index) {
-            var coin = coins[index];
-            var coinPrice = coin.quoteModel.usdModel;
-            var data = [
-              ChartData(coinPrice.percentChange_90d, 2160),
-              ChartData(coinPrice.percentChange_60d, 1440),
-              ChartData(coinPrice.percentChange_30d, 720),
-              ChartData(coinPrice.percentChange_24h, 24),
-              ChartData(coinPrice.percentChange_1h, 1)
-            ];
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => CoinDetailsScreans(coin: coin)));
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 16),
-                child: Container(
-                    height: 70.0,
-                    width: size.width,
-                    padding: const EdgeInsets.only(top: 10),
-                    decoration: BoxDecoration(
-                        color: appProvider.brightness ? kblack : kwhite,
-                        borderRadius: BorderRadius.circular(16)),
-                    child: Row(
-                      children: [
-                        CoinLogoWidgets(
-                          coin: coin,
-                        ),
-                        CoinChartWidget(
-                          color: appProvider.brightness ? kwhite : kblack,
-                          data: data,
-                          coinPrice: coinPrice,
-                        )
-                      ],
-                    )),
-              ),
-            );
-          }),
+      body: Scrollbar(
+        child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: coins.length,
+            itemBuilder: (context, index) {
+              var coin = coins[index];
+              var coinPrice = coin.quoteModel.usdModel;
+              var data = [
+                ChartData(coinPrice.percentChange_90d, 2160),
+                ChartData(coinPrice.percentChange_60d, 1440),
+                ChartData(coinPrice.percentChange_30d, 720),
+                ChartData(coinPrice.percentChange_24h, 24),
+                ChartData(coinPrice.percentChange_1h, 1)
+              ];
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              CoinDetailsScreans(coin: coin)));
+                },
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 16),
+                  child: Container(
+                      height: 70.0,
+                      width: size.width,
+                      padding: const EdgeInsets.only(top: 10),
+                      decoration: BoxDecoration(
+                          color: appProvider.brightness ? kblack : kwhite,
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Row(
+                        children: [
+                          CoinLogoWidgets(
+                            coin: coin,
+                          ),
+                          CoinChartWidget(
+                            color: appProvider.brightness ? kwhite : kblack,
+                            data: data,
+                            coinPrice: coinPrice,
+                          )
+                        ],
+                      )),
+                ),
+              );
+            }),
+      ),
     );
   }
 }
