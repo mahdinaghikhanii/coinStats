@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:coinstats/models/models.dart';
 import 'package:coinstats/util/enum/repository/repository.dart';
+import 'package:coinstats/util/view_models/connectivity_provider.dart';
+import 'package:coinstats/views/screans/check_network_screans.dart';
 import 'package:coinstats/views/widgets/coin_list_widgets.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreans extends StatefulWidget {
   const HomeScreans({Key? key}) : super(key: key);
@@ -15,11 +18,6 @@ class HomeScreans extends StatefulWidget {
 class _HomeScreansState extends State<HomeScreans> {
   late Future<BigDataModele> _futureCoins;
   late Repository repository;
-
-  ConnectivityResult _connectionStatus = ConnectivityResult.none;
-  final Connectivity _connectivity = Connectivity();
-  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
-  bool hasInternet = false;
 
   @override
   void initState() {
@@ -38,25 +36,31 @@ class _HomeScreansState extends State<HomeScreans> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<BigDataModele>(
-      future: _futureCoins,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasData) {
-            var coinsData = snapshot.data!.dataModel;
-            return CoinListWidgets(
-              coins: coinsData,
-            );
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
-          }
-        }
+    final pro = Provider.of<ConnectivityChangeNotifier>(context);
+    pro.initialLoad();
 
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
+    return Consumer<ConnectivityChangeNotifier>(builder: (BuildContext context,
+        ConnectivityChangeNotifier connectivityChangeNotifier, Widget? child) {
+      return FutureBuilder<BigDataModele>(
+        future: _futureCoins,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasData) {
+              var coinsData = snapshot.data!.dataModel;
+              return CoinListWidgets(
+                coins: coinsData,
+              );
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+          }
+
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      );
+    });
   }
 }
 /*

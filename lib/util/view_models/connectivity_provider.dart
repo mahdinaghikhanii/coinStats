@@ -10,7 +10,7 @@ class ConnectivityChangeNotifier extends ChangeNotifier {
 
   ConnectivityResult _connectivityResult = ConnectivityResult.none;
 
-  String _pngUrl = "assets/images/internet_check.png";
+  String _pngUrl = "assets/images/internet.png";
   String _pageText =
       "Currently connected to no network. Please connect to a wifi network!";
 
@@ -22,17 +22,21 @@ class ConnectivityChangeNotifier extends ChangeNotifier {
   void resultHandler(ConnectivityResult result) {
     _connectivityResult = result;
     if (result == ConnectivityResult.none) {
-      _pngUrl = "assets/images/internet_check.png";
+      _pngUrl = "assets/images/internet.png";
       _pageText =
           'Currently connected to no network. Please connect to a wifi network!';
     } else if (result == ConnectivityResult.mobile) {
-      _pngUrl = "assets/images/internet_check.png";
+      _pngUrl = "assets/images/internet.png";
       _pageText =
           'Currently connected to a celluar network. Please connect to a wifi network!';
     } else if (result == ConnectivityResult.wifi) {
-      _pngUrl = "assets/images/internet_check.png";
+      _pngUrl = "assets/images/internet.png";
       _pageText = 'Connected to a wifi network!';
+    } else {
+      _pageText = "fuck";
+      _pngUrl = "assets/images/internet.png";
     }
+
     notifyListeners();
   }
 
