@@ -44,6 +44,7 @@ class CoinDetailsScreans extends StatelessWidget {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(
               height: 40,
@@ -102,19 +103,63 @@ class CoinDetailsScreans extends StatelessWidget {
               height: 25,
             ),
             CoinDetailAboutCoin(
-              deetial: coin.quoteModel.usdModel.marketCap.toString(),
+              deetial: "\$" + coin.quoteModel.usdModel.marketCap.toString(),
               name: 'Market cap',
               datachcart: '',
               icon: coin.quoteModel.usdModel.marketCap >= 0
                   ? arrowupright
                   : arrowdownleft,
+              iconcolor: coin.quoteModel.usdModel.marketCap >= 0
+                  ? Colors.green
+                  : Colors.red,
             ),
             CoinDetailAboutCoin(
-                deetial:
-                    coin.quoteModel.usdModel.fullydilutedmarketcap.toString(),
-                name: 'Fully diluted marketcap',
-                datachcart: '',
-                icon: Icons.timer_rounded),
+              deetial: "\$" +
+                  coin.quoteModel.usdModel.fullydilutedmarketcap.toString(),
+              name: 'Fully diluted marketcap',
+              datachcart: '',
+              icon: coin.quoteModel.usdModel.marketCap >= 0
+                  ? arrowupright
+                  : arrowdownleft,
+              iconcolor: coin.quoteModel.usdModel.fullydilutedmarketcap >= 0
+                  ? Colors.green
+                  : Colors.red,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("Circulating Supply",
+                      style: const TextStyle(fontSize: 15, color: grey)),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        coin.circulatingSupply.toString() + " " + coin.symbol,
+                        style: TextStyle(
+                            color: appProvider.brightness ? kwhite : kblack,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.verified, color: grey),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Divider(
+                    indent: 2,
+                    endIndent: 2,
+                    color: kwhite,
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

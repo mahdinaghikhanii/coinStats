@@ -81,27 +81,17 @@ class _HomeScreansState extends State<HomeScreans> {
   Future<void> _UpdateConnectionState(ConnectivityResult result) async {
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
-      showStatus(result, true);
     } else {
-      showStatus(result, false);
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const CheckNetWork()));
     }
   }
 
-  void showStatus(ConnectivityResult result, bool status) {
+  /*void showStatus(ConnectivityResult result, bool status) {
     final snackBar = SnackBar(
         content:
             Text("${status ? 'ONLINE\n' : 'OFFLINE\n'}${result.toString()} "),
         backgroundColor: status ? Colors.green : Colors.red);
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
+  }*/
 }
-/*
-Checkbox(
-            onChanged: (bool? value) {
-              appProvider.brightnessChange = value!;
-            },
-            value: appProvider.brightness,
-          )
-          */

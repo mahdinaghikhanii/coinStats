@@ -8,12 +8,14 @@ class CoinDetailAboutCoin extends StatelessWidget {
   const CoinDetailAboutCoin(
       {required this.deetial,
       required this.name,
+      required this.iconcolor,
       required this.icon,
       required this.datachcart});
 
   final String name;
   final String deetial;
   final IconData icon;
+  final Color iconcolor;
   final String datachcart;
 
   @override
@@ -40,7 +42,7 @@ class CoinDetailAboutCoin extends StatelessWidget {
                     fontSize: 18),
               ),
               const Spacer(),
-              Icon(icon),
+              Icon(icon, color: iconcolor),
               Text(datachcart)
             ],
           ),
