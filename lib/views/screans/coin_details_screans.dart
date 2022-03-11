@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
+import '../../models/chart_data_model.dart';
+import '../widgets/coin_chart_widget.dart';
+
 class CoinDetailsScreans extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   CoinDetailsScreans({required this.coin});
@@ -20,6 +23,14 @@ class CoinDetailsScreans extends StatelessWidget {
 
     final appProvider = Provider.of<AppProvider>(context);
     final textTheme = Theme.of(context).textTheme;
+    var coinPrice = coin.quoteModel.usdModel;
+    var data = [
+      ChartData(coinPrice.percentChange_90d, 2160),
+      ChartData(coinPrice.percentChange_60d, 1440),
+      ChartData(coinPrice.percentChange_30d, 720),
+      ChartData(coinPrice.percentChange_24h, 24),
+      ChartData(coinPrice.percentChange_1h, 1)
+    ];
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -85,6 +96,8 @@ class CoinDetailsScreans extends StatelessWidget {
                 ],
               ),
             ),
+            CoinChartWidget(
+                data: data, coinPrice: coin.quoteModel.usdModel, color: kred),
             const SizedBox(
               height: 25,
             ),
@@ -97,8 +110,9 @@ class CoinDetailsScreans extends StatelessWidget {
                   : arrowdownleft,
             ),
             CoinDetailAboutCoin(
-                deetial: coin.quoteModel.usdModel.lastUpdated.toString(),
-                name: 'Last Update',
+                deetial:
+                    coin.quoteModel.usdModel.fullydilutedmarketcap.toString(),
+                name: 'Fully diluted marketcap',
                 datachcart: '',
                 icon: Icons.timer_rounded),
           ],

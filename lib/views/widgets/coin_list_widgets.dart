@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
-import 'package:coinstats/models/bringcoins_model/coin_search.dart';
+import 'package:coinstats/views/widgets/coin_search_widgets.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
@@ -12,6 +12,8 @@ import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'coin_detail_for_price_in_list_widgets.dart';
 
 class CoinListWidgets extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
@@ -39,7 +41,8 @@ class CoinListWidgets extends StatelessWidget {
               IconButton(
                   onPressed: () {
                     showSearch(
-                        context: context, delegate: CoinSearch(coin: coins));
+                        context: context,
+                        delegate: CoinSearchWidgets(coin: coins));
                   },
                   icon: Icon(
                     Icons.search,
@@ -183,7 +186,6 @@ class CoinListWidgets extends StatelessWidget {
                                 var coin = coins[index];
                                 var coinPrice = coin.quoteModel.usdModel;
                                 var coinname = coin.name;
-
                                 var data = [
                                   ChartData(coinPrice.percentChange_90d, 2160),
                                   ChartData(coinPrice.percentChange_60d, 1440),
@@ -223,7 +225,9 @@ class CoinListWidgets extends StatelessWidget {
                                               color: kwhite,
                                               data: data,
                                               coinPrice: coinPrice,
-                                            )
+                                            ),
+                                            CoinDatilForPriceWidgets(
+                                                coinPrice: coinPrice),
                                           ],
                                         )),
                                   ),

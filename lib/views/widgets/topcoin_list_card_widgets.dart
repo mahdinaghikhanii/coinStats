@@ -2,10 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
-import 'package:coinstats/views/widgets/test.dart';
+import 'package:coinstats/views/widgets/topcoin_card_items_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../models/bringcoins_model/usd_model.dart';
 
 // ignore: must_be_immutable
@@ -17,12 +16,6 @@ class TopCoinListcarTopWidget extends StatelessWidget {
   final DataModel coin;
   final UsdModel coinPrice;
   final List<ChartData> data;
-
-  /* CardTopCoin(
-      {required this.image, required this.nameCoin, required this.price});
-  final String image;
-  final String nameCoin;
-  final int price;*/
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +79,7 @@ class TopCoinListcarTopWidget extends StatelessWidget {
               style: textTheme.subtitle2,
             ),
           ),
-          Test(
+          TopCoinCardItemsWidgets(
             data: data,
             coinPrice: coinPrice,
             color: coinPrice.percentChange_1h >= 0

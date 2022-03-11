@@ -3,8 +3,8 @@ import 'package:coinstats/models/bringcoins_model/usd_model.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class Test extends StatelessWidget {
-  const Test({
+class TopCoinCardItemsWidgets extends StatelessWidget {
+  const TopCoinCardItemsWidgets({
     Key? key,
     required this.data,
     required this.coinPrice,

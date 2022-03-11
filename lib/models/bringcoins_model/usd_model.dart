@@ -11,6 +11,7 @@ class UsdModel {
   final num percentChange_90d;
   final num marketCap;
   final String lastUpdated;
+  final num fullydilutedmarketcap;
 
   UsdModel(
       {required this.price,
@@ -22,7 +23,8 @@ class UsdModel {
       required this.percentChange_60d,
       required this.percentChange_90d,
       required this.marketCap,
-      required this.lastUpdated});
+      required this.lastUpdated,
+      required this.fullydilutedmarketcap});
 
   factory UsdModel.fromJson(Map<String, dynamic> json) {
     return UsdModel(
@@ -43,6 +45,7 @@ class UsdModel {
           json["percent_change90d"] == null ? 0.0 : json["percent_change90d"],
       marketCap: json["market_cap"] == null ? 0.0 : json["market_cap"],
       lastUpdated: json["last_updated"],
+      fullydilutedmarketcap: json["fully_diluted_market_cap"],
     );
   }
 }

@@ -5,8 +5,8 @@ import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CoinSearch extends SearchDelegate<String> {
-  CoinSearch({required this.coin});
+class CoinSearchWidgets extends SearchDelegate<String> {
+  CoinSearchWidgets({required this.coin});
   List<DataModel> coin;
 
   var listSearch = [];

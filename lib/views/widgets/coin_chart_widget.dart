@@ -1,5 +1,6 @@
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/usd_model.dart';
+import 'package:coinstats/views/widgets/coin_detail_for_price_in_list_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -16,6 +17,7 @@ class CoinChartWidget extends StatelessWidget {
   final Color color;
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final textTheme = Theme.of(context).textTheme;
     return Expanded(
         child:
@@ -43,20 +45,6 @@ class CoinChartWidget extends StatelessWidget {
           ),
         ),
       ),
-      Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "\$" + coinPrice.price.toStringAsFixed(2).toString(),
-              style: textTheme.headline6,
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(coinPrice.percentChange_1h.toStringAsFixed(2) + "%",
-                style: textTheme.headline4),
-          ])
     ]));
   }
 }
