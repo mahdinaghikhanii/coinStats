@@ -2,7 +2,6 @@ import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CheckNetWork extends StatelessWidget {
   const CheckNetWork({Key? key}) : super(key: key);

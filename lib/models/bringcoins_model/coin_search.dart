@@ -1,6 +1,9 @@
-import 'package:coinstats/main.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
+import 'package:coinstats/theme/constant.dart';
+import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CoinSearch extends SearchDelegate<String> {
   CoinSearch({required this.coin});
@@ -50,30 +53,50 @@ class CoinSearch extends SearchDelegate<String> {
     List<String> all = [];
     for (int i = 0; i < coin.length; i++) {
       var result = coin[i];
-      mahdi.add(result.name);
+      mahdi.add(result.symbol);
     }
     all = mahdi;
-    print(listSearch);
 
     listSearch = query.isEmpty
         ? []
         : all.where(((element) => element.startsWith(query))).toList();
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return ListTile(
-          /*   leading: SizedBox(
-            width: 35,
-            child: CachedNetworkImage(
-              imageUrl: ((Constans.coinIconUrl + coins.symbol + ".png")
-                  .toLowerCase()),
-              placeholder: (context, url) => const CircularProgressIndicator(),
-              errorWidget: (context, url, error) =>
-                  SvgPicture.asset('assets/icon/dollar.svg'),
-            ),
-          ),*/
 
-          title: Text(listSearch[index].toString()),
-        );
+    return ListView.builder(
+      shrinkWrap: true,
+      itemBuilder: (context, index) {
+        var myCoin = coin[index];
+        return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CoinDetailsScreans(coin: myCoin)));
+            },
+            child: ListTile(
+                /*   leading: SizedBox(
+              width: 35,
+              child: CachedNetworkImage(
+                imageUrl: ((Constans.coinIconUrl + coins.symbol + ".png")
+                    .toLowerCase()),
+                placeholder: (context, url) => const CircularProgressIndicator(),
+                errorWidget: (context, url, error) =>
+                    SvgPicture.asset('assets/icon/dollar.svg'),
+              ),
+            ),*/
+                leading: SizedBox(
+                    height: 30.0,
+                    width: 30,
+                    child: CachedNetworkImage(
+                      imageUrl: ((Constans.coinIconUrl +
+                              listSearch[index].toString() +
+                              ".png")
+                          .toLowerCase()),
+                      placeholder: (context, url) =>
+                          const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) =>
+                          SvgPicture.asset('assets/icon/dollar.svg'),
+                    )),
+                title: Text(listSearch[index].toString())));
       },
       itemCount: listSearch.length,
     );

@@ -1,16 +1,10 @@
 import 'dart:async';
-
 import 'package:coinstats/theme/configtheme.dart';
 import 'package:coinstats/util/view_models/app_provider.dart';
-
-import 'package:coinstats/views/screans/check_network_screans.dart';
-
 import 'package:coinstats/views/screans/getstart_scra.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,7 +33,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
 
+  // ignore: unused_field
   final Connectivity _connectivity = Connectivity();
+  // ignore: unused_field
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   @override

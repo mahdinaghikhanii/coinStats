@@ -67,6 +67,7 @@ class _HomeScreansState extends State<HomeScreans> {
     try {
       result = await _connectivity.checkConnectivity();
     } on PlatformException catch (e) {
+      // ignore: avoid_print
       print("Error Occurred: ${e.toString()} ");
       return;
     }
