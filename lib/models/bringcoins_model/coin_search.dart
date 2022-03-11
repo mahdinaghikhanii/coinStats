@@ -46,11 +46,18 @@ class CoinSearch extends SearchDelegate<String> {
   }
 
   Widget buildSuggestionsSuccess() {
+    List<String> mahdi = [];
+    List<String> all = [];
+    for (int i = 0; i < coin.length; i++) {
+      var result = coin[i];
+      mahdi.add(result.name);
+    }
+    all = mahdi;
+    print(listSearch);
+
     listSearch = query.isEmpty
         ? []
-        : appProvider.my
-            .where(((element) => element.startsWith(query)))
-            .toList();
+        : all.where(((element) => element.startsWith(query))).toList();
     return ListView.builder(
       itemBuilder: (context, index) {
         return ListTile(
