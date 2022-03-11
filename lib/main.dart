@@ -45,13 +45,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initConnectivity();
-  }
-
-  @override
-  void dispose() {
-    _connectivitySubscription.cancel();
-    super.dispose();
   }
 
   @override
@@ -74,31 +67,5 @@ class _MyAppState extends State<MyApp> {
                 : const HomeScreans());
       }),
     );
-  }
-
-  void checl() {}
-
-  Future<void> initConnectivity() async {
-    late ConnectivityResult result;
-    try {
-      result = await _connectivity.checkConnectivity();
-    } on PlatformException catch (e) {
-      print("Error Occurred: ${e.toString()} ");
-      return;
-    }
-    if (!mounted) {
-      return Future.value(null);
-    }
-    return _UpdateConnectionState(result);
-  }
-
-  // ignore: non_constant_identifier_names
-  Future<void> _UpdateConnectionState(ConnectivityResult result) async {
-    if (result == ConnectivityResult.mobile ||
-        result == ConnectivityResult.wifi) {
-    } else {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => CheckNetWork()));
-    }
   }
 }

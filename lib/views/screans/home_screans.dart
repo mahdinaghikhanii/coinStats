@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:coinstats/models/models.dart';
 import 'package:coinstats/util/enum/repository/repository.dart';
+import 'package:coinstats/views/screans/check_network_screans.dart';
 import 'package:coinstats/views/widgets/coin_list_widgets.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -42,24 +43,23 @@ class _HomeScreansState extends State<HomeScreans> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<BigDataModele>(
-      future: _futureCoins,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasData) {
-            var coinsData = snapshot.data!.dataModel;
-            return CoinListWidgets(
-              coins: coinsData,
-            );
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
+        future: _futureCoins,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasData) {
+              var coinsData = snapshot.data!.dataModel;
+              return CoinListWidgets(
+                coins: coinsData,
+              );
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
           }
-        }
 
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
   }
 
   Future<void> initConnectivity() async {
@@ -83,6 +83,8 @@ class _HomeScreansState extends State<HomeScreans> {
       showStatus(result, true);
     } else {
       showStatus(result, false);
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const CheckNetWork()));
     }
   }
 
