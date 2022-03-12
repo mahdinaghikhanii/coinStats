@@ -98,7 +98,10 @@ class CoinDetailsScreans extends StatelessWidget {
               ),
             ),
             CoinChartWidget(
-                data: data, coinPrice: coin.quoteModel.usdModel, color: kred),
+              data: data,
+              coinPrice: coin.quoteModel.usdModel,
+              color: kred,
+            ),
             const SizedBox(
               height: 25,
             ),

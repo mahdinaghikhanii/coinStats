@@ -26,7 +26,7 @@ class DialogSettingScreans extends StatelessWidget {
             children: <Widget>[
               Container(
                 width: double.infinity,
-                height: size.height * 0.30,
+                height: size.height * 0.25,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: appProvider.brightness ? kblack : kwhite),

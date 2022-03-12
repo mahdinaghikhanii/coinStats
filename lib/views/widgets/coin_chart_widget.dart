@@ -12,6 +12,7 @@ class CoinChartWidget extends StatelessWidget {
   }) : super(key: key);
 
   final List<ChartData> data;
+
   final UsdModel coinPrice;
   final Color color;
   @override
