@@ -132,7 +132,7 @@ class CoinDetailsScreans extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text("Circulating Supply",
-                      style: const TextStyle(fontSize: 15, color: grey)),
+                      style: TextStyle(fontSize: 15, color: grey)),
                   const SizedBox(
                     height: 10,
                   ),
