@@ -45,8 +45,7 @@ class ConfigTheme {
       scaffoldBackgroundColor: isDarkTheme ? kblack : kwhite,
       indicatorColor:
           isDarkTheme ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),
-      hintColor:
-          isDarkTheme ? const Color(0xff280C0B) : const Color(0xffEECED3),
+      hintColor: isDarkTheme ? grey : grey,
       highlightColor:
           isDarkTheme ? const Color(0xff372901) : const Color(0xffFCE192),
       hoverColor:
