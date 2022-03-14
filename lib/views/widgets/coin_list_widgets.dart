@@ -181,7 +181,7 @@ class CoinListWidgets extends StatelessWidget {
                       child: coins.isNotEmpty
                           ? ListView.builder(
                               shrinkWrap: true,
-                              itemCount: 3,
+                              itemCount: 4,
                               itemBuilder: (context, index) {
                                 var coin = coins[index];
                                 var coinPrice = coin.quoteModel.usdModel;
