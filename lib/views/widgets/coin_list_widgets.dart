@@ -3,7 +3,7 @@ import 'package:coinstats/views/widgets/coin_search_widgets.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
-import 'package:coinstats/util/view_models/app_provider.dart';
+import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/dialog/dialogsetting_screans.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/screans/coin_details_screans.dart';

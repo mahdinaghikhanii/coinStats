@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:coinstats/theme/configtheme.dart';
-import 'package:coinstats/util/view_models/app_provider.dart';
+import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/screans/getstart_scra.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';

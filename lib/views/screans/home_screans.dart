@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:coinstats/models/models.dart';
-import 'package:coinstats/util/enum/repository/repository.dart';
 import 'package:coinstats/views/screans/check_network_screans.dart';
 import 'package:coinstats/views/widgets/coin_list_widgets.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../../util/repository/repository.dart';
 
 class HomeScreans extends StatefulWidget {
   const HomeScreans({Key? key}) : super(key: key);

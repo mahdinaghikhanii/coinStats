@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:coinstats/theme/constant.dart';
-import 'package:coinstats/util/view_models/app_provider.dart';
+import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

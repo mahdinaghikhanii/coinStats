@@ -2,12 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/views/screans/coin_details_screans.dart';
-import 'package:coinstats/views/widgets/coin_list_widgets.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../models/bringcoins_model/big_data_modele.dart';
-import '../../util/enum/repository/repository.dart';
 
 class CoinSearchWidgets extends SearchDelegate<String> {
   CoinSearchWidgets({required this.coin});
@@ -56,13 +53,14 @@ class CoinSearchWidgets extends SearchDelegate<String> {
     for (int i = 0; i < coin.length; i++) {
       var myCoin = coin[i];
 
+      // ignore: unnecessary_null_comparison
       if (query != null && myCoin.name.contains(query.toLowerCase())) {
         return ListTile(
           title: Text(query),
         );
       }
     }
-    return Text('data');
+    return const Text('data');
   }
 
   Widget buildSuggestionsSuccess() {
@@ -71,7 +69,6 @@ class CoinSearchWidgets extends SearchDelegate<String> {
     for (int i = 0; i < coin.length; i++) {
       var result = coin[i];
       data.add(result.symbol);
-      print(data);
     }
     nameCoin = data;
 
