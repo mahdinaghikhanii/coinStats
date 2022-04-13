@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:coinstats/provider/home_provoder/home_provider.dart';
 import 'package:coinstats/theme/configtheme.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/screans/getstart_scra.dart';
@@ -47,11 +48,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AppProvider>(
-            create: (
-          context,
-        ) =>
-                appProvider),
+        ChangeNotifierProvider(
+            create: (context) => BottomNavigationBarProvider()),
+        ChangeNotifierProvider<AppProvider>(create: (context) => appProvider),
       ],
       child: Consumer<AppProvider>(builder: (context, model, child) {
         return MaterialApp(
