@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:coinstats/constant.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
-import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/widgets/coin_detail_about_coin.dart';
 import 'package:flutter/material.dart';

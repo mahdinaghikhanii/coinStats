@@ -1,4 +1,4 @@
-import 'package:coinstats/theme/constant.dart';
+import 'package:coinstats/constant.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,21 +18,22 @@ class GetStartScreans extends StatelessWidget {
     // ignore: unused_local_variable
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: InkWell(
+        borderRadius: BorderRadius.circular(Constans.smallBorderRadios),
         onTap: () {
           preferencesisviewed();
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomeScreans()));
         },
         child: Container(
-          width: 60,
+          width: 140,
           height: 60,
-          decoration: const BoxDecoration(
-              color: Color(0xFF00004C), shape: BoxShape.circle),
+          decoration: BoxDecoration(
+              color: kblue,
+              borderRadius: BorderRadius.circular(Constans.smallBorderRadios)),
           child: Center(
               child: Text(
-            'Next',
+            'Lets Go',
             style: Theme.of(context)
                 .textTheme
                 .button
@@ -44,42 +45,40 @@ class GetStartScreans extends StatelessWidget {
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const SizedBox(
-              height: 10,
+              height: 80,
             ),
-            Center(
-              child: Image.asset(
-                'assets/images/onboard.png',
-                width: 300,
-                height: 300,
-              ),
+            Image.asset(
+              'assets/images/onboard.png',
+              width: 300,
+              height: 300,
             ),
             const SizedBox(
-              height: 0,
+              height: 30,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                RichText(
-                    text: TextSpan(children: [
-                  TextSpan(
-                      text: 'Currency',
-                      style: Theme.of(context).textTheme.headlineLarge),
-                  TextSpan(
-                      text: ' price fluctuations',
-                      style: Theme.of(context).textTheme.headline5)
-                ])),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                    "The best place to see digital currency pricen\n  fluctuations",
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.caption),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(Constans.padding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('See 100 Top Currency',
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                          fontSize: 24,
+                          color: kblue,
+                          fontWeight: FontWeight.w800)),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                      "The evre best place to see digital currency pricen fluctuations",
+                      style: Theme.of(context)
+                          .textTheme
+                          .caption
+                          ?.copyWith(color: grey600)),
+                ],
+              ),
             ),
           ],
         ),

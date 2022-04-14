@@ -16,11 +16,15 @@ const Color korange = Color(0xFFFFA726);
 const Color grey = Colors.grey;
 const Color kpurple = Colors.purple;
 const Color kgreen = Colors.green;
+const Color blue800 = Color(0xFF00004C);
+const Color grey600 = Color(0xFF757575);
 
 const IconData arrowdownleft = CupertinoIcons.arrow_down_left;
 const IconData arrowupright = CupertinoIcons.arrow_up_right;
 
 class Constans {
+  static var coinIconUrl =
+      "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
   static const double fontButtonSisze = 14;
 
   // pading

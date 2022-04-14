@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+import 'package:coinstats/constant.dart';
 
-import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

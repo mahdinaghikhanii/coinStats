@@ -1,7 +1,7 @@
+import 'package:coinstats/constant.dart';
 import 'package:coinstats/main.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/models/chart_data_model.dart';
-import 'package:coinstats/theme/constant.dart';
 import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
 import 'package:coinstats/views/widgets/coin_detail_for_price_in_list_widgets.dart';

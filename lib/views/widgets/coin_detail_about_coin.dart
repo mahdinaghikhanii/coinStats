@@ -1,5 +1,6 @@
+import 'package:coinstats/constant.dart';
 import 'package:coinstats/main.dart';
-import 'package:coinstats/theme/constant.dart';
+
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
