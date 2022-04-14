@@ -39,20 +39,6 @@ class CoinListWidgets extends StatelessWidget {
             centerTitle: false,
             actions: [
               IconButton(
-                  onPressed: () {
-                    showSearch(
-                        context: context,
-                        delegate: CoinSearchWidgets(coin: coins));
-                  },
-                  icon: Icon(
-                    Icons.search,
-                    color: grey,
-                    size: 30,
-                  )),
-              SizedBox(
-                width: 0,
-              ),
-              IconButton(
                 onPressed: () {
                   showDialog(
                       context: context,
@@ -181,7 +167,7 @@ class CoinListWidgets extends StatelessWidget {
                       child: coins.isNotEmpty
                           ? ListView.builder(
                               shrinkWrap: true,
-                              itemCount: 4,
+                              itemCount: 3,
                               itemBuilder: (context, index) {
                                 var coin = coins[index];
                                 var coinPrice = coin.quoteModel.usdModel;
