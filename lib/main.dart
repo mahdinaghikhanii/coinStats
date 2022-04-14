@@ -2,6 +2,7 @@ import 'package:coinstats/provider/home_provoder/home_provider.dart';
 import 'package:coinstats/theme/configtheme.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/screans/getstart_scra.dart';
+import 'package:coinstats/views/widgets/home_navbar/home_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
             title: 'CoinStats',
             home: isviewedgetstartscreans != 0
                 ? const GetStartScreans()
-                : const GetStartScreans());
+                : const HomeNavbar());
       }),
     );
   }
