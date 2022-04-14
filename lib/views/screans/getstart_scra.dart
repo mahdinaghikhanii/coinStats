@@ -8,7 +8,6 @@ class GetStartScreans extends StatelessWidget {
 
   // ignore: constant_identifier_names
   static const IS_VIEWED = "VIEWED";
-
   void preferencesisviewed() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.setInt(IS_VIEWED, 0);
@@ -19,6 +18,28 @@ class GetStartScreans extends StatelessWidget {
     // ignore: unused_local_variable
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: InkWell(
+        onTap: () {
+          preferencesisviewed();
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomeScreans()));
+        },
+        child: Container(
+          width: 60,
+          height: 60,
+          decoration: const BoxDecoration(
+              color: Color(0xFF00004C), shape: BoxShape.circle),
+          child: Center(
+              child: Text(
+            'Next',
+            style: Theme.of(context)
+                .textTheme
+                .button
+                ?.copyWith(color: kwhite, fontSize: 16),
+          )),
+        ),
+      ),
       backgroundColor: kwhite,
       body: SafeArea(
         child: Column(
@@ -30,7 +51,7 @@ class GetStartScreans extends StatelessWidget {
             ),
             Center(
               child: Image.asset(
-                'assets/images/getstartcoin.png',
+                'assets/images/onboard.png',
                 width: 300,
                 height: 300,
               ),
@@ -60,28 +81,6 @@ class GetStartScreans extends StatelessWidget {
                     style: Theme.of(context).textTheme.caption),
               ],
             ),
-            InkWell(
-              onTap: () {
-                preferencesisviewed();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HomeScreans()));
-              },
-              child: Container(
-                width: 200,
-                height: 60,
-                decoration: BoxDecoration(
-                  color: korange,
-                  borderRadius: BorderRadius.circular(Constans.kborderRadios),
-                ),
-                child: Center(
-                    child: Text(
-                  'Next',
-                  style: Theme.of(context).textTheme.button,
-                )),
-              ),
-            )
           ],
         ),
       ),
