@@ -42,7 +42,7 @@ dependencies:
   syncfusion_flutter_charts: ^19.4.54
   intl: ^0.17.0
   overlay_support: ^1.2.1
-  connectivity_plus: ^2.2.1
+
   
 
  
