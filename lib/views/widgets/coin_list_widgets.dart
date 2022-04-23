@@ -4,7 +4,6 @@ import 'package:coinstats/views/widgets/coin_search_widgets.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
-import 'package:coinstats/views/dialog/dialogsetting_screans.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
@@ -39,20 +38,19 @@ class CoinListWidgets extends StatelessWidget {
             centerTitle: false,
             actions: [
               IconButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (
-                        context,
-                      ) =>
-                          const DialogSettingScreans());
-                },
-                icon: Icon(
-                  Icons.settings,
-                  size: 30,
-                  color: grey,
-                ),
-              )
+                  onPressed: () {
+                    showSearch(
+                        context: context,
+                        delegate: CoinSearchWidgets(coin: coins));
+                  },
+                  icon: Icon(
+                    Icons.search,
+                    color: grey,
+                    size: 30,
+                  )),
+              SizedBox(
+                width: 0,
+              ),
             ],
             automaticallyImplyLeading: false,
             title: Padding(

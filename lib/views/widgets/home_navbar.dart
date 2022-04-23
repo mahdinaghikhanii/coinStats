@@ -14,7 +14,7 @@ class HomeNavbar extends StatelessWidget {
     const List pages = [
       HomeScreans(),
       FavoriteScreans(),
-      SettingScreans(),
+      FavoriteScreans(),
       SettingScreans()
     ];
 
@@ -33,9 +33,11 @@ class HomeNavbar extends StatelessWidget {
           },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "home"),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-            BottomNavigationBarItem(icon: Icon(Icons.settings), label: "home")
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: "search"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite), label: "favorite"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: "settings")
           ],
         ));
   }
