@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 import 'package:coinstats/constant.dart';
-import 'package:coinstats/views/widgets/coin_search_widgets.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
@@ -37,8 +36,16 @@ class CoinListWidgets extends StatelessWidget {
         appBar: AppBar(
             elevation: 0,
             centerTitle: false,
+            leading: Padding(
+                padding: EdgeInsets.only(left: Constans.padding),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.menu,
+                      color: grey,
+                    ))),
             actions: [
-              IconButton(
+              /*IconButton(
                   onPressed: () {
                     showSearch(
                         context: context,
@@ -51,7 +58,7 @@ class CoinListWidgets extends StatelessWidget {
                   )),
               SizedBox(
                 width: 0,
-              ),
+              ),*/
               IconButton(
                 onPressed: () {
                   showDialog(
@@ -70,7 +77,7 @@ class CoinListWidgets extends StatelessWidget {
             ],
             automaticallyImplyLeading: false,
             title: Padding(
-              padding: const EdgeInsets.only(left: 4),
+              padding: const EdgeInsets.only(left: 0),
               child: Text(
                 'CoinStats',
                 style: Theme.of(context).textTheme.subtitle1,
@@ -159,8 +166,9 @@ class CoinListWidgets extends StatelessWidget {
                                       builder: (context) =>
                                           AllCoinsScreans(coins: coins)));
                             },
-                            highlightColor: kred,
-                            borderRadius: BorderRadius.circular(2),
+                            highlightColor: kwhite,
+                            borderRadius:
+                                BorderRadius.circular(Constans.bigBorderRadios),
                             child: Center(
                               child: SizedBox(
                                 height: 30,
@@ -181,7 +189,7 @@ class CoinListWidgets extends StatelessWidget {
                       child: coins.isNotEmpty
                           ? ListView.builder(
                               shrinkWrap: true,
-                              itemCount: 4,
+                              itemCount: 3,
                               itemBuilder: (context, index) {
                                 var coin = coins[index];
                                 var coinPrice = coin.quoteModel.usdModel;
