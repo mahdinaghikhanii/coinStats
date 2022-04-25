@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:coinstats/models/models.dart';
-import 'package:coinstats/views/widgets/coin_list_widgets.dart';
+import 'package:coinstats/views/widgets/home_items.dart';
 import 'package:flutter/material.dart';
 import '../../repository/repository.dart';
 
@@ -37,7 +37,7 @@ class _HomeScreansState extends State<HomeScreans> {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
               var coinsData = snapshot.data!.dataModel;
-              return CoinListWidgets(
+              return HomeScreansItems(
                 coins: coinsData,
               );
             } else if (snapshot.hasError) {
