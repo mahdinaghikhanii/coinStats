@@ -1,3 +1,4 @@
+import 'package:coinstats/constant.dart';
 import 'package:coinstats/provider/home_provoder/home_provider.dart';
 import 'package:coinstats/views/screans/favorite_screans.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
@@ -13,7 +14,7 @@ class HomeNavbar extends StatelessWidget {
     const List pages = [
       HomeScreans(),
       FavoriteScreans(),
-      SettingScreans(),
+      FavoriteScreans(),
       SettingScreans()
     ];
 
@@ -21,6 +22,9 @@ class HomeNavbar extends StatelessWidget {
     return Scaffold(
         body: pages[homeProvider.getindexNavBar],
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: kwhite,
+          fixedColor: kblack,
+          unselectedItemColor: grey,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           currentIndex: homeProvider.getindexNavBar,
@@ -29,9 +33,11 @@ class HomeNavbar extends StatelessWidget {
           },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home")
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: "search"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite), label: "favorite"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: "settings")
           ],
         ));
   }

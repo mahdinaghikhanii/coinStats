@@ -18,7 +18,6 @@ class _HomeScreansState extends State<HomeScreans> {
   @override
   void initState() {
     //this part for check wifi or data mobile
-
     // this part for req server and respone for Datamodel
     repository = Repository();
     _futureCoins = repository.getCoins();
@@ -51,14 +50,4 @@ class _HomeScreansState extends State<HomeScreans> {
           );
         });
   }
-
-  // ignore: non_constant_identifier_names
-
-  /*void showStatus(ConnectivityResult result, bool status) {
-    final snackBar = SnackBar(
-        content:
-            Text("${status ? 'ONLINE\n' : 'OFFLINE\n'}${result.toString()} "),
-        backgroundColor: status ? Colors.green : Colors.red);
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }*/
 }
