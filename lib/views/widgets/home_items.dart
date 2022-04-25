@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
-import 'dart:math';
 
 import 'package:coinstats/constant.dart';
 import 'package:coinstats/models/chart_data_model.dart';
@@ -37,17 +36,17 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
     return WillPopScope(
       onWillPop: () async {
         ScaffoldMessenger.of(context);
-        return false;
+        return true;
       },
       child: AnimatedContainer(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
         transform: Matrix4.translationValues(xOffset, yOffset, 0)
-          ..scale(isDrawerOpen ? 0.90 : 1.00)
-          ..rotateZ(isDrawerOpen ? pi / 20 : 0),
-        duration: Duration(seconds: 200),
-        decoration: BoxDecoration(
-            borderRadius: isDrawerOpen
-                ? BorderRadius.circular(Constans.hightBorderRadius)
-                : BorderRadius.circular(0)),
+          ..scale(isDrawerOpen ? 0.90 : 1.00),
+        //..rotateZ(isDrawerOpen ? pi / 20 : 0),
+        duration: Duration(
+          milliseconds: 200,
+        ),
+
         child: Scaffold(
           appBar: AppBar(
               elevation: 0,
@@ -55,7 +54,21 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
               leading: Padding(
                   padding: EdgeInsets.only(left: Constans.padding),
                   child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (isDrawerOpen) {
+                          setState(() {
+                            xOffset = 0;
+                            yOffset = 0;
+                            isDrawerOpen = false;
+                          });
+                        } else {
+                          setState(() {
+                            xOffset = size.width - 120;
+                            yOffset = size.height / 5;
+                            isDrawerOpen = true;
+                          });
+                        }
+                      },
                       icon: Icon(
                         Icons.menu,
                         color: grey,

@@ -41,7 +41,7 @@ class _HomeScreansState extends State<HomeScreans> {
               return Scaffold(
                   body: Stack(
                 children: [
-                  SidBarWidgets(),
+                  const SidBarWidgets(),
                   HomeScreansItems(
                     coins: coinsData,
                   ),

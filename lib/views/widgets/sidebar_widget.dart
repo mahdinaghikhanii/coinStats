@@ -53,7 +53,7 @@ class SidBarWidgets extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SettingScreans()));
+                            builder: (context) => const SettingScreans()));
                   },
                 ),
                 TextBuilderWidgets(
