@@ -1,4 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
+import 'dart:math';
+
 import 'package:coinstats/constant.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
@@ -16,22 +18,17 @@ import 'coin_detail_for_price_in_list_widgets.dart';
 
 class HomeScreansItems extends StatefulWidget {
   final List<DataModel> coins;
-
   const HomeScreansItems({Key? key, required this.coins}) : super(key: key);
-
   @override
   State<HomeScreansItems> createState() => _HomeScreansItemsState();
 }
 
 class _HomeScreansItemsState extends State<HomeScreansItems> {
   double xOffset = 0;
-
   double yOffset = 0;
-
   bool isDrawerOpen = false;
 
   @override
-  // ignore: duplicate_ignore
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final textTheme = Theme.of(context).textTheme;
@@ -43,7 +40,14 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
         return false;
       },
       child: AnimatedContainer(
+        transform: Matrix4.translationValues(xOffset, yOffset, 0)
+          ..scale(isDrawerOpen ? 0.90 : 1.00)
+          ..rotateZ(isDrawerOpen ? pi / 20 : 0),
         duration: Duration(seconds: 200),
+        decoration: BoxDecoration(
+            borderRadius: isDrawerOpen
+                ? BorderRadius.circular(Constans.hightBorderRadius)
+                : BorderRadius.circular(0)),
         child: Scaffold(
           appBar: AppBar(
               elevation: 0,

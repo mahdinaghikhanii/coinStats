@@ -36,6 +36,7 @@ class Constans {
   static const double smallBorderRadios = 10;
   static const double mediumBorderRadios = 18;
   static const double bigBorderRadios = 30;
+  static const double hightBorderRadius = 40;
 
   //sizebox
   static const double smallSizedBox = 10;

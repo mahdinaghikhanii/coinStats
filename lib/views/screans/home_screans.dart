@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:coinstats/models/models.dart';
 import 'package:coinstats/views/widgets/home_items.dart';
+import 'package:coinstats/views/widgets/sidebar_widget.dart';
 import 'package:flutter/material.dart';
 import '../../repository/repository.dart';
 
@@ -37,9 +38,15 @@ class _HomeScreansState extends State<HomeScreans> {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
               var coinsData = snapshot.data!.dataModel;
-              return HomeScreansItems(
-                coins: coinsData,
-              );
+              return Scaffold(
+                  body: Stack(
+                children: [
+                  SidBarWidgets(),
+                  HomeScreansItems(
+                    coins: coinsData,
+                  ),
+                ],
+              ));
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }
