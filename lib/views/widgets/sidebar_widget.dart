@@ -11,7 +11,7 @@ class SidBarWidgets extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     final textTheme = Theme.of(context).textTheme;
     return Container(
-      color: Colors.indigo.shade900,
+      color: kblue,
       child: Padding(
         padding: const EdgeInsets.only(top: 50, left: 40, bottom: 70),
         child: Column(
@@ -35,12 +35,14 @@ class SidBarWidgets extends StatelessWidget {
                   ),
                   Text(
                     'Mahdi',
-                    style: textTheme.subtitle1,
+                    style: textTheme.subtitle2
+                        ?.copyWith(fontSize: 22, fontWeight: FontWeight.w800),
                   ),
-                  Text(
-                    'Mahdinkh7@gmail.com',
-                    style: textTheme.bodyText1?.copyWith(color: Colors.blue),
-                  )
+                  Text('Mahdinkh7@gmail.com',
+                      style: textTheme.subtitle2?.copyWith(
+                          color: grey,
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal))
                 ],
               ),
             ),
