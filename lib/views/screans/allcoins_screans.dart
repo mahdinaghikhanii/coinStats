@@ -8,8 +8,6 @@ import 'package:coinstats/views/widgets/coin_detail_for_price_in_list_widgets.da
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
 import 'package:flutter/material.dart';
 
-import '../dialog/dialogsetting_screans.dart';
-
 class AllCoinsScreans extends StatelessWidget {
   const AllCoinsScreans({Key? key, required this.coins}) : super(key: key);
   final List<DataModel> coins;
@@ -33,25 +31,6 @@ class AllCoinsScreans extends StatelessWidget {
                       'CoinStats',
                       style: Theme.of(context).textTheme.subtitle1,
                     )),
-                actions: [
-                  Padding(
-                      padding: const EdgeInsets.only(right: Constans.padding),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.settings,
-                          size: 30,
-                          color: grey,
-                        ),
-                        onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (
-                                context,
-                              ) =>
-                                  const DialogSettingScreans());
-                        },
-                      ))
-                ],
               )
             ];
           },
