@@ -17,34 +17,48 @@ class SidBarWidgets extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              width: size.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const CircleAvatar(
-                    child: Icon(
-                      Icons.person,
-                      color: kwhite,
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(0),
+                  width: 80,
+                  height: 80,
+                  child: CircleAvatar(
+                    backgroundColor: kgerey300,
+                    child: ClipOval(
+                      child: Image.asset(
+                        "assets/images/mahdi.jpg",
+                        width: 75,
+                        height: 75,
+                      ),
                     ),
-                    radius: 40,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Mahdi',
-                    style: textTheme.subtitle2
-                        ?.copyWith(fontSize: 22, fontWeight: FontWeight.w800),
-                  ),
-                  Text('Mahdinkh7@gmail.com',
-                      style: textTheme.subtitle2?.copyWith(
-                          color: grey,
-                          fontSize: 18,
-                          fontWeight: FontWeight.normal))
-                ],
-              ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Mahdi naghikhani',
+                      style: textTheme.subtitle2
+                          ?.copyWith(fontSize: 18, fontWeight: FontWeight.w800),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text('View profile',
+                        style: textTheme.subtitle2?.copyWith(
+                            color: kgerey300,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700))
+                  ],
+                )
+              ],
             ),
             Column(
               children: [

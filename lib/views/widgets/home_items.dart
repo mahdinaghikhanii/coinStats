@@ -11,8 +11,6 @@ import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../dialog/dialogsetting_screans.dart';
 import 'coin_detail_for_price_in_list_widgets.dart';
 
 class HomeScreansItems extends StatefulWidget {
@@ -117,7 +115,7 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
                         )),
                     SizedBox(
                       width: 0,
-                    ),*/
+                    ),
                     IconButton(
                       onPressed: () {
                         if (isDrawerOpen == true) {
@@ -136,7 +134,7 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
                         size: 30,
                         color: grey,
                       ),
-                    ),
+                    ),*/
                   ],
                   automaticallyImplyLeading: false,
                   title: Padding(
