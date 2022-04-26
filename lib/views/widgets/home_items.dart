@@ -101,41 +101,6 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
                             Icons.menu,
                             color: grey,
                           ))),
-                  actions: [
-                    /*IconButton(
-                        onPressed: () {
-                          showSearch(
-                              context: context,
-                              delegate: CoinSearchWidgets(coin: coins));
-                        },
-                        icon: Icon(
-                          Icons.search,
-                          color: grey,
-                          size: 30,
-                        )),
-                    SizedBox(
-                      width: 0,
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        if (isDrawerOpen == true) {
-                          return;
-                        } else {
-                          showDialog(
-                              context: context,
-                              builder: (
-                                context,
-                              ) =>
-                                  const DialogSettingScreans());
-                        }
-                      },
-                      icon: Icon(
-                        Icons.settings,
-                        size: 30,
-                        color: grey,
-                      ),
-                    ),*/
-                  ],
                   automaticallyImplyLeading: false,
                   title: Padding(
                     padding: const EdgeInsets.only(left: 0),
