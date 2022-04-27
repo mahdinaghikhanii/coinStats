@@ -1,4 +1,6 @@
+import 'package:appwrite/appwrite.dart';
 import 'package:coinstats/provider/home_provoder/home_provider.dart';
+import 'package:coinstats/services/appwrite_services.dart';
 import 'package:coinstats/theme/configtheme.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/screans/getstart_scra.dart';
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => AppwriteServices()),
         ChangeNotifierProvider(
             create: (context) => BottomNavigationBarProvider()),
         ChangeNotifierProvider<AppProvider>(create: (context) => appProvider),
