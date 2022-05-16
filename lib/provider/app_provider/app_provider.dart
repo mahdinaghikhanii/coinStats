@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum themdata { dark, light }
-
 class AppProvider extends ChangeNotifier {
   var theme = ThemeData.light;
   // ignore: constant_identifier_names

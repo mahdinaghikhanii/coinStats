@@ -1,13 +1,12 @@
-import 'package:appwrite/appwrite.dart';
-import 'package:coinstats/provider/home_provoder/home_provider.dart';
-import 'package:coinstats/services/appwrite_services.dart';
-import 'package:coinstats/theme/configtheme.dart';
-import 'package:coinstats/provider/app_provider/app_provider.dart';
-import 'package:coinstats/views/screans/getstart_scra.dart';
-import 'package:coinstats/views/screans/home_screans.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'provider/app_provider/app_provider.dart';
+import 'provider/home_provoder/home_provider.dart';
+import 'theme/configtheme.dart';
+import 'views/screans/getstart_scra.dart';
+import 'views/screans/home_screans.dart';
 
 int? isviewedgetstartscreans;
 AppProvider appProvider = AppProvider();
@@ -31,7 +30,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => AppwriteServices()),
         ChangeNotifierProvider(
             create: (context) => BottomNavigationBarProvider()),
         ChangeNotifierProvider<AppProvider>(create: (context) => appProvider),

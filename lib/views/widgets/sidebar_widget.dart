@@ -1,17 +1,14 @@
-import 'package:appwrite/appwrite.dart';
-import 'package:coinstats/constant.dart';
-import 'package:coinstats/services/appwrite_services.dart';
-import 'package:coinstats/views/screans/setting_screans.dart';
-import 'package:coinstats/views/widgets/textbuilder_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+import '../../constant.dart';
+import '../screans/setting_screans.dart';
+import 'textbuilder_widgets.dart';
 
 class SidBarWidgets extends StatelessWidget {
   const SidBarWidgets({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     final textTheme = Theme.of(context).textTheme;
     return Container(
       color: kblue,
@@ -78,27 +75,7 @@ class SidBarWidgets extends StatelessWidget {
                 TextBuilderWidgets(
                   icon: Icons.favorite,
                   text: "Favorites",
-                  onTap: () async {
-                    // Register User
-                    final client = context.read<AppwriteServices>().client;
-                    final account = Account(client);
-
-                    final user = await account.create(
-                        userId: 'unique()',
-                        email: 'naghi@gmail.com',
-                        password: 'password',
-                        name: 'Eli');
-
-                    final realtime = Realtime(client);
-                    final subscription = realtime.subscribe(['files']);
-
-                    subscription.stream.listen((response) {
-                      if (response.event == 'storage.files.create') {
-                        // Log when a new file is uploaded
-                        print(response.payload);
-                      }
-                    });
-                  },
+                  onTap: () async {},
                 ),
                 TextBuilderWidgets(
                   icon: Icons.person,
