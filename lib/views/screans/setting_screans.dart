@@ -14,7 +14,7 @@ class SettingScreans extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(
-            height: 40,
+            height: 20,
           ),
           SizedBox(
             height: context.height * 0.14,
@@ -26,10 +26,13 @@ class SettingScreans extends StatelessWidget {
           ),
           Expanded(
               child: Container(
-            decoration: BoxDecoration(
-              color: kwhite,
-              borderRadius: BorderRadius.circular(Constans.bigBorderRadios),
-            ),
+            decoration: const BoxDecoration(
+                color: kwhite,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(
+                      Constans.bigBorderRadios,
+                    ),
+                    topRight: Radius.circular(Constans.bigBorderRadios))),
             child: Padding(
               padding: const EdgeInsets.all(Constans.padding),
               child: Column(

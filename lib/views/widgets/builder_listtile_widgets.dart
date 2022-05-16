@@ -45,7 +45,7 @@ class BuilderListTileWidgets extends StatelessWidget {
         trailing: showSwitchButton
             ? Switch(
                 inactiveTrackColor: kblue,
-                activeColor: kblue,
+                activeColor: kblue.withOpacity(0.6),
                 value: showSwitchButton,
                 onChanged: (val) {})
             : const Icon(
@@ -55,13 +55,13 @@ class BuilderListTileWidgets extends StatelessWidget {
               ),
         leading: Icon(
           icon,
-          size: 30,
-          color: kblue,
+          size: 26,
+          color: kblue.withOpacity(0.6),
         ),
         title: Text(title,
             style: Theme.of(context).textTheme.subtitle1?.copyWith(
                 fontSize: 18,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 color: Colors.grey.shade600)),
       ),
     );
