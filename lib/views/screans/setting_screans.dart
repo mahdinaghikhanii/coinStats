@@ -10,28 +10,21 @@ class SettingScreans extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        centerTitle: false,
-        titleSpacing: 0,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: Constans.padding),
-          child: Text(
-            'Settings',
-            style: textTheme.subtitle1,
-          ),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              color: kblue,
+              child: Text(),
+            ),
+            const BuilderListTileWidgets(
+              icon: Icons.person,
+              title: 'Account',
+            )
+          ],
         ),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: const [
-          BuilderListTileWidgets(
-            icon: Icons.person,
-            title: 'Account',
-          )
-        ],
       ),
     );
   }
