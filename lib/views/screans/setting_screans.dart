@@ -1,3 +1,4 @@
+import 'package:coinstats/main.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant.dart';
@@ -10,66 +11,84 @@ class SettingScreans extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: kblue,
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+        title: Text('Settings',
+            style: context.textTheme.subtitle2!.copyWith(fontSize: 28)),
+        leading: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: Constans.padding),
+            child: InkWell(
+                onTap: (() => Navigator.pop(context)),
+                child: const Icon(Icons.arrow_back_ios))),
+        centerTitle: false,
+        elevation: 0,
+      ),
       backgroundColor: kblue,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 20,
-          ),
           SizedBox(
-            height: context.height * 0.14,
-            child: Text(
-              'Settings',
-              style: context.textTheme.subtitle2!
-                  .copyWith(fontWeight: FontWeight.bold, fontSize: 36),
-            ).center,
+            height: context.height * 0.05,
           ),
           Expanded(
               child: Container(
             decoration: const BoxDecoration(
                 color: kwhite,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(
-                      Constans.bigBorderRadios,
-                    ),
-                    topRight: Radius.circular(Constans.bigBorderRadios))),
+                  topLeft: Radius.circular(
+                    Constans.bigBorderRadios,
+                  ),
+                )),
             child: Padding(
               padding: const EdgeInsets.all(Constans.padding),
               child: Column(
-                children: const [
-                  SizedBox(
+                children: [
+                  const SizedBox(
                     height: 20,
                   ),
                   BuilderListTileWidgets(
+                    icon: Icons.dark_mode,
+                    title: 'DarkMode',
+                    val: appProvider.brightness,
+                    onChanged: () => appProvider.brightnessChange(
+                        appProvider.brightness ? true : false),
+                    showSwitchButton: true,
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  const BuilderListTileWidgets(
                     icon: Icons.notifications,
                     title: 'Help',
                     showSwitchButton: true,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
-                  BuilderListTileWidgets(
+                  const BuilderListTileWidgets(
                     icon: Icons.privacy_tip_rounded,
                     title: 'Privacy',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
-                  BuilderListTileWidgets(
+                  const BuilderListTileWidgets(
                     icon: Icons.share,
                     title: 'Share with your frinds',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
-                  BuilderListTileWidgets(
+                  const BuilderListTileWidgets(
                     icon: Icons.person,
                     title: 'About us',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
-                  BuilderListTileWidgets(
+                  const BuilderListTileWidgets(
                     icon: Icons.help,
                     title: 'Help',
                   ),

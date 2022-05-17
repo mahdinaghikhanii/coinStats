@@ -6,10 +6,6 @@ class ConfigTheme {
   late final Color scafoldColor;
   late final Brightness brightness;
 
-  ConfigTheme.light() {
-    return;
-  }
-
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
       textTheme: TextTheme(
