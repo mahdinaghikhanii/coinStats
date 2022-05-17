@@ -34,9 +34,9 @@ class SettingScreans extends StatelessWidget {
           ),
           Expanded(
               child: Container(
-            decoration: const BoxDecoration(
-                color: kwhite,
-                borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(
                     Constans.bigBorderRadios,
                   ),
@@ -52,8 +52,8 @@ class SettingScreans extends StatelessWidget {
                     icon: Icons.dark_mode,
                     title: 'DarkMode',
                     val: appProvider.brightness,
-                    onChanged: () => appProvider.brightnessChange(
-                        appProvider.brightness ? true : false),
+                    onChanged: (va) =>
+                        appProvider.brightnessChange(va ? true : false),
                     showSwitchButton: true,
                   ),
                   const SizedBox(
@@ -61,7 +61,7 @@ class SettingScreans extends StatelessWidget {
                   ),
                   const BuilderListTileWidgets(
                     icon: Icons.notifications,
-                    title: 'Help',
+                    title: 'Notfication',
                     showSwitchButton: true,
                   ),
                   const SizedBox(

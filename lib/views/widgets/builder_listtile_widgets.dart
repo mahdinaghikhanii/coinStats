@@ -1,5 +1,7 @@
+import 'package:coinstats/main.dart';
+
 import '../../constant.dart';
-import '../../main.dart';
+
 import 'package:flutter/material.dart';
 
 class BuilderListTileWidgets extends StatelessWidget {
@@ -15,7 +17,7 @@ class BuilderListTileWidgets extends StatelessWidget {
   final IconData icon;
   final String title;
   final bool showSwitchButton;
-  final Function? onChanged;
+  final Function(bool)? onChanged;
   final bool val;
 
   @override
@@ -32,9 +34,9 @@ class BuilderListTileWidgets extends StatelessWidget {
               blurRadius: 10.0,
               spreadRadius: 2.0,
             ), //BoxShadow
-            const BoxShadow(
-              color: Colors.white,
-              offset: Offset(0.0, 0.0),
+            BoxShadow(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              offset: const Offset(0.0, 0.0),
               blurRadius: 0.0,
               spreadRadius: 0.0,
             )
@@ -47,10 +49,12 @@ class BuilderListTileWidgets extends StatelessWidget {
       child: ListTile(
         trailing: showSwitchButton
             ? Switch(
-                inactiveTrackColor: kblue,
-                activeColor: kblue.withOpacity(0.6),
+                inactiveTrackColor: appProvider.brightness ? grey : kblue,
+                activeColor:
+                    appProvider.brightness ? kwhite : kblue.withOpacity(0.6),
                 value: val,
-                onChanged: (val) => onChanged)
+                inactiveThumbColor: kwhite,
+                onChanged: onChanged)
             : const Icon(
                 Icons.keyboard_arrow_right,
                 size: 28,
@@ -59,13 +63,17 @@ class BuilderListTileWidgets extends StatelessWidget {
         leading: Icon(
           icon,
           size: 26,
-          color: kblue.withOpacity(0.6),
+          color: appProvider.brightness
+              ? kwhite.withOpacity(0.6)
+              : kblue.withOpacity(0.6),
         ),
         title: Text(title,
             style: Theme.of(context).textTheme.subtitle1?.copyWith(
                 fontSize: 18,
                 fontWeight: FontWeight.normal,
-                color: Colors.grey.shade600)),
+                color: appProvider.brightness
+                    ? Colors.grey.shade300
+                    : Colors.grey.shade600)),
       ),
     );
   }
