@@ -1,3 +1,5 @@
+import 'package:coinstats/module/extension.dart';
+import 'package:coinstats/views/screans/favorite_screans.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -76,7 +78,9 @@ class SidBarWidgets extends StatelessWidget {
                 TextBuilderWidgets(
                   icon: Icons.favorite,
                   text: "Favorites",
-                  onTap: () async {},
+                  onTap: () {
+                    context.nextScreans(const FavoriteScreans());
+                  },
                 ),
                 TextBuilderWidgets(
                   icon: Icons.person,

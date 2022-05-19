@@ -35,7 +35,7 @@ class CoinDetailsScreans extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(
-          padding: const EdgeInsets.only(right: Constans.padding),
+          padding: const EdgeInsets.only(left: 10),
           child: IconButton(
             onPressed: () {},
             icon: const Icon(Icons.arrow_back_ios_new),
@@ -43,8 +43,9 @@ class CoinDetailsScreans extends StatelessWidget {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(left: Constans.padding),
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+            padding: const EdgeInsets.only(right: 10),
+            child:
+                IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
           )
         ],
         centerTitle: true,

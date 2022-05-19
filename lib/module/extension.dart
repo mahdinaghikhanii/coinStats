@@ -5,6 +5,9 @@ extension ContextExtension on BuildContext {
   double get height => MediaQuery.of(this).size.height;
 
   TextTheme get textTheme => Theme.of(this).textTheme;
+  void nextScreans(child) {
+    Navigator.push(this, MaterialPageRoute(builder: (context) => child));
+  }
 }
 
 extension StringExtension on String {}
