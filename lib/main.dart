@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -15,6 +16,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   isviewedgetstartscreans = sharedPreferences.getInt("VIEWED");
+  SystemChrome.setSystemUIOverlayStyle(
+    appProvider.brightness
+        ? SystemUiOverlayStyle.dark
+        : SystemUiOverlayStyle.light,
+  );
 
   await appProvider.getDarkThemeOrLightTeam();
   runApp(MyApp(

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:coinstats/models/models.dart';
 import 'package:coinstats/views/widgets/home_items.dart';
+import 'package:coinstats/views/widgets/loading_widgets.dart';
 import 'package:coinstats/views/widgets/sidebar_widget.dart';
 import 'package:flutter/material.dart';
 import '../../repository/repository.dart';
@@ -53,7 +54,7 @@ class _HomeScreansState extends State<HomeScreans> {
           }
 
           return const Center(
-            child: CircularProgressIndicator(),
+            child: LoadingWidgets(),
           );
         });
   }

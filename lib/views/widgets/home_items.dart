@@ -7,6 +7,7 @@ import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
+import 'package:coinstats/views/widgets/loading_widgets.dart';
 import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
 import 'package:flutter/material.dart';
@@ -121,73 +122,70 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
                           height: 20,
                         ),
                         SizedBox(
-                          height: 240,
-                          width: size.width,
-                          child: widget.coins.isNotEmpty
-                              ? ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  shrinkWrap: true,
-                                  itemCount: 3,
-                                  itemBuilder: (context, index) {
-                                    var coin = widget.coins[index];
+                            height: 240,
+                            width: size.width,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                shrinkWrap: true,
+                                itemCount: 3,
+                                itemBuilder: (context, index) {
+                                  var coin = widget.coins[index];
 
-                                    var coinPrice = coin.quoteModel.usdModel;
+                                  var coinPrice = coin.quoteModel.usdModel;
 
-                                    var data = [
-                                      ChartData(
-                                          coinPrice.percentChange_90d, 2160),
-                                      ChartData(
-                                          coinPrice.percentChange_60d, 1440),
-                                      ChartData(
-                                          coinPrice.percentChange_30d, 720),
-                                      ChartData(
-                                          coinPrice.percentChange_24h, 24),
-                                      ChartData(coinPrice.percentChange_1h, 1)
-                                    ];
-                                    return GestureDetector(
-                                      onTap: () {
-                                        if (isDrawerOpen == true) {
-                                          setState(() {
-                                            xOffset = 0;
-                                            yOffset = 0;
-                                            isDrawerOpen = false;
-                                          });
-                                        } else {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      CoinDetailsScreans(
-                                                        coin: coin,
-                                                      )));
-                                        }
-                                      },
-                                      child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 20, right: 8, bottom: 16),
-                                          child: Container(
-                                            height: 200,
-                                            width: 300,
-                                            padding:
-                                                const EdgeInsets.only(top: 10),
-                                            decoration: BoxDecoration(
-                                                color: appProvider.brightness
-                                                    ? kblue
-                                                    : kblue,
-                                                borderRadius:
-                                                    BorderRadius.circular(25)),
-                                            child: TopCoinListcarTopWidget(
-                                              data: data,
-                                              coin: coin,
-                                              coinPrice: coinPrice,
-                                            ),
-                                          )),
-                                    );
-                                  })
-                              : Center(
-                                  child: CircularProgressIndicator(),
-                                ),
-                        ),
+                                  var data = [
+                                    ChartData(
+                                        coinPrice.percentChange_90d, 2160),
+                                    ChartData(
+                                        coinPrice.percentChange_60d, 1440),
+                                    ChartData(coinPrice.percentChange_30d, 720),
+                                    ChartData(coinPrice.percentChange_24h, 24),
+                                    ChartData(coinPrice.percentChange_1h, 1)
+                                  ];
+                                  return GestureDetector(
+                                    onTap: () {
+                                      if (isDrawerOpen == true) {
+                                        setState(() {
+                                          xOffset = 0;
+                                          yOffset = 0;
+                                          isDrawerOpen = false;
+                                        });
+                                      } else {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    CoinDetailsScreans(
+                                                      coin: coin,
+                                                    )));
+                                      }
+                                    },
+                                    child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 20, right: 8, bottom: 16),
+                                        child: Container(
+                                          height: 200,
+                                          width: 300,
+                                          padding:
+                                              const EdgeInsets.only(top: 10),
+                                          decoration: BoxDecoration(
+                                              color: appProvider.brightness
+                                                  ? kblue
+                                                  : kblue,
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          child: TopCoinListcarTopWidget(
+                                            data: data,
+                                            coin: coin,
+                                            coinPrice: coinPrice,
+                                          ),
+                                        )),
+                                  );
+                                })
+                            /* : Center(
+                                  child: LoadingWidgets(),
+                                ),*/
+                            ),
                         Padding(
                             padding: const EdgeInsets.all(Constans.padding),
                             child: Row(
@@ -227,78 +225,71 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
                               ],
                             )),
                         Expanded(
-                            child: widget.coins.isNotEmpty
-                                ? ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: 3,
-                                    itemBuilder: (context, index) {
-                                      var coin = widget.coins[index];
-                                      var coinPrice = coin.quoteModel.usdModel;
-                                      var coinname = coin.name;
-                                      var data = [
-                                        ChartData(
-                                            coinPrice.percentChange_90d, 2160),
-                                        ChartData(
-                                            coinPrice.percentChange_60d, 1440),
-                                        ChartData(
-                                            coinPrice.percentChange_30d, 720),
-                                        ChartData(
-                                            coinPrice.percentChange_24h, 24),
-                                        ChartData(coinPrice.percentChange_1h, 1)
-                                      ];
-                                      return GestureDetector(
-                                        onTap: () {
-                                          if (isDrawerOpen == true) {
-                                            setState(() {
-                                              xOffset = 0;
-                                              yOffset = 0;
-                                              isDrawerOpen = false;
-                                            });
-                                          } else {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        CoinDetailsScreans(
-                                                          coin: coin,
-                                                        )));
-                                          }
-                                        },
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 20, right: 20, bottom: 16),
-                                          child: Container(
-                                              height: 70.0,
-                                              width: size.width,
-                                              padding: const EdgeInsets.only(
-                                                  top: 10),
-                                              decoration: BoxDecoration(
-                                                  color: appProvider.brightness
-                                                      ? kblack
-                                                      : kwhite,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16)),
-                                              child: Row(
-                                                children: [
-                                                  CoinLogoWidgets(
-                                                    coin: coin,
-                                                  ),
-                                                  CoinChartWidget(
-                                                    color: kwhite,
-                                                    data: data,
-                                                    coinPrice: coinPrice,
-                                                  ),
-                                                  CoinDatilForPriceWidgets(
-                                                      coinPrice: coinPrice),
-                                                ],
-                                              )),
-                                        ),
-                                      );
-                                    })
-                                : Center(
-                                    child: CircularProgressIndicator(),
-                                  )),
+                            child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: 3,
+                                itemBuilder: (context, index) {
+                                  var coin = widget.coins[index];
+                                  var coinPrice = coin.quoteModel.usdModel;
+                                  var coinname = coin.name;
+                                  var data = [
+                                    ChartData(
+                                        coinPrice.percentChange_90d, 2160),
+                                    ChartData(
+                                        coinPrice.percentChange_60d, 1440),
+                                    ChartData(coinPrice.percentChange_30d, 720),
+                                    ChartData(coinPrice.percentChange_24h, 24),
+                                    ChartData(coinPrice.percentChange_1h, 1)
+                                  ];
+                                  return GestureDetector(
+                                    onTap: () {
+                                      if (isDrawerOpen == true) {
+                                        setState(() {
+                                          xOffset = 0;
+                                          yOffset = 0;
+                                          isDrawerOpen = false;
+                                        });
+                                      } else {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    CoinDetailsScreans(
+                                                      coin: coin,
+                                                    )));
+                                      }
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20, right: 20, bottom: 16),
+                                      child: Container(
+                                          height: 70.0,
+                                          width: size.width,
+                                          padding:
+                                              const EdgeInsets.only(top: 10),
+                                          decoration: BoxDecoration(
+                                              color: appProvider.brightness
+                                                  ? kblack
+                                                  : kwhite,
+                                              borderRadius:
+                                                  BorderRadius.circular(16)),
+                                          child: Row(
+                                            children: [
+                                              CoinLogoWidgets(
+                                                coin: coin,
+                                              ),
+                                              CoinChartWidget(
+                                                color: kwhite,
+                                                data: data,
+                                                coinPrice: coinPrice,
+                                              ),
+                                              CoinDatilForPriceWidgets(
+                                                  coinPrice: coinPrice),
+                                            ],
+                                          )),
+                                    ),
+                                  );
+                                }))
                       ],
                     ),
                   ),
