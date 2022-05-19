@@ -1,17 +1,17 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
 import 'package:coinstats/constant.dart';
-import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
+import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
-import 'package:coinstats/views/widgets/loading_widgets.dart';
-import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
+import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'coin_detail_for_price_in_list_widgets.dart';
 
 class HomeScreansItems extends StatefulWidget {

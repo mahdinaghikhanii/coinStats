@@ -1,20 +1,21 @@
-import '../../main.dart';
+import 'package:flutter/material.dart';
 
 import '../../constant.dart';
-
-import 'package:flutter/material.dart';
+import '../../main.dart';
 
 class BuilderListTileWidgets extends StatelessWidget {
   const BuilderListTileWidgets({
     Key? key,
     required this.icon,
     required this.title,
+    this.onTap,
     this.val = false,
     this.showSwitchButton = false,
     this.onChanged,
   }) : super(key: key);
 
   final IconData icon;
+  final Function()? onTap;
   final String title;
   final bool showSwitchButton;
   final Function(bool)? onChanged;

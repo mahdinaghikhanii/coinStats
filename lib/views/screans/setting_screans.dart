@@ -1,7 +1,8 @@
-import 'package:coinstats/main.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../constant.dart';
+import '../../main.dart';
 import '../../module/extension.dart';
 import '../widgets/builder_listtile_widgets.dart';
 
@@ -81,7 +82,11 @@ class SettingScreans extends StatelessWidget {
                   const SizedBox(
                     height: 12,
                   ),
-                  const BuilderListTileWidgets(
+                  BuilderListTileWidgets(
+                    onTap: () async {
+                      await launchUrlString(
+                          "https://main--nostalgic-jennings-63dd2f.netlify.app/");
+                    },
                     icon: Icons.person,
                     title: 'About us',
                   ),
