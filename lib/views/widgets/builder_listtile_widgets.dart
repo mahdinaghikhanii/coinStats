@@ -1,4 +1,4 @@
-import 'package:coinstats/main.dart';
+import '../../main.dart';
 
 import '../../constant.dart';
 

@@ -1,5 +1,6 @@
-import 'package:coinstats/models/bringcoins_model/big_data_modele.dart';
 import 'package:dio/dio.dart';
+
+import '../models/bringcoins_model/big_data_modele.dart';
 
 class Repository {
   static String mainUrl = "https://pro-api.coinmarketcap.com/v1/";
