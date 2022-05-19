@@ -42,45 +42,49 @@ class GetStartScreans extends StatelessWidget {
         ),
       ),
       backgroundColor: kwhite,
-      body: SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            const SizedBox(
-              height: 80,
-            ),
-            Image.asset(
-              'assets/images/onboard.png',
-              width: 300,
-              height: 300,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Constans.padding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('See 100 Top Currency',
-                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          fontSize: 24,
-                          color: kblue,
-                          fontWeight: FontWeight.w800)),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                      "The evre best place to see digital currency pricen fluctuations",
-                      style: Theme.of(context)
-                          .textTheme
-                          .caption
-                          ?.copyWith(color: grey600)),
-                ],
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/on1.jpg'), fit: BoxFit.cover)),
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              /* Image.asset(
+                'assets/images/onboard.png',
+                width: 300,
+                height: 300,
+              ),*/
+              const SizedBox(
+                height: 280,
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(Constans.padding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('See 100 Top Currency',
+                        style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                            fontSize: 24,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800)),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                        "The evre best place to see digital currency pricen fluctuations",
+                        style: Theme.of(context)
+                            .textTheme
+                            .caption
+                            ?.copyWith(color: Colors.white)),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
