@@ -33,6 +33,20 @@ class CoinDetailsScreans extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: Padding(
+          padding: const EdgeInsets.only(right: Constans.padding),
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.arrow_back_ios_new),
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(left: Constans.padding),
+            child: IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+          )
+        ],
         centerTitle: true,
         elevation: 0,
         foregroundColor: appProvider.brightness ? kwhite : kblack,

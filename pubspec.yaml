@@ -44,6 +44,7 @@ dependencies:
   intl: ^0.17.0
   overlay_support: ^1.2.1
   url_launcher: ^6.1.2
+  hive_flutter: ^1.1.0
 
 
   
