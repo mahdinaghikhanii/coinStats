@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../constant.dart';
 import '../screans/setting_screans.dart';
@@ -90,7 +92,10 @@ class SidBarWidgets extends StatelessWidget {
                 TextBuilderWidgets(
                   icon: Icons.person,
                   text: "About Us",
-                  onTap: () {},
+                  onTap: () async {
+                    await launchUrlString(
+                        'https://main--nostalgic-jennings-63dd2f.netlify.app/');
+                  },
                 ),
               ],
             ),

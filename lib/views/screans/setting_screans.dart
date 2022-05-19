@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../constant.dart';
 import '../../main.dart';
@@ -83,10 +83,7 @@ class SettingScreans extends StatelessWidget {
                     height: 12,
                   ),
                   BuilderListTileWidgets(
-                    onTap: () async {
-                      await launchUrlString(
-                          "https://main--nostalgic-jennings-63dd2f.netlify.app/");
-                    },
+                    onTap: () async {},
                     icon: Icons.person,
                     title: 'About us',
                   ),
