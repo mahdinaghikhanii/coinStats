@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:coinstats/provider/widget_provider/widget_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => WidgetPrvider()),
         ChangeNotifierProvider(
             create: (context) => BottomNavigationBarProvider()),
         ChangeNotifierProvider<AppProvider>(create: (context) => appProvider),

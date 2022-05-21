@@ -1,4 +1,8 @@
+import 'package:coinstats/module/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/widget_provider/widget_provider.dart';
 
 class MFavoriteButton extends StatelessWidget {
   final double? iconSize;
@@ -16,11 +20,15 @@ class MFavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mfb = Provider.of<WidgetPrvider>(context);
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        mfb.setMfavoriteButton(isFavorite);
+      },
       child: Icon(
         Icons.favorite,
         size: iconSize ?? 22,
+        color: isFavorite ? kred : kgrey200,
       ),
     );
   }
