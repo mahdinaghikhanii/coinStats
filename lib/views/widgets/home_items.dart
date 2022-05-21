@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
-import 'package:coinstats/constant.dart';
+import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';

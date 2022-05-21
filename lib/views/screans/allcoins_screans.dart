@@ -1,4 +1,4 @@
-import 'package:coinstats/constant.dart';
+import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/main.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/models/chart_data_model.dart';

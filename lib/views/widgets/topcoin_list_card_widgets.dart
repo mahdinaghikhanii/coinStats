@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:coinstats/constant.dart';
+import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/views/widgets/topcoin_card_items_widgets.dart';

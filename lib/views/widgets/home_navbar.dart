@@ -1,4 +1,4 @@
-import 'package:coinstats/constant.dart';
+import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/provider/home_provoder/home_provider.dart';
 import 'package:coinstats/views/screans/favorite_screans.dart';
 import 'package:coinstats/views/screans/home_screans.dart';

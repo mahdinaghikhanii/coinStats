@@ -1,4 +1,4 @@
-import 'package:coinstats/constant.dart';
+import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/views/screans/home_screans.dart';
 
 import 'package:flutter/material.dart';

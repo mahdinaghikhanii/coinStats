@@ -1,7 +1,7 @@
 import 'package:coinstats/main.dart';
 import 'package:flutter/material.dart';
 
-import '../../constant.dart';
+import '../../module/constant.dart';
 
 class LoadingWidgets extends StatelessWidget {
   const LoadingWidgets({Key? key}) : super(key: key);

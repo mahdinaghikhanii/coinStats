@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constant.dart';
+import '../../module/constant.dart';
 import '../../main.dart';
 
 class BuilderListTileWidgets extends StatelessWidget {

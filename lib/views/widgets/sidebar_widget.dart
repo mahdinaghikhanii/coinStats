@@ -3,7 +3,7 @@ import 'package:coinstats/views/screans/favorite_screans.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import '../../constant.dart';
+import '../../module/constant.dart';
 import '../screans/setting_screans.dart';
 import 'textbuilder_widgets.dart';
 
