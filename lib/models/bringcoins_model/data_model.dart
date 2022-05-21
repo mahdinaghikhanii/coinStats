@@ -1,18 +1,33 @@
 import 'package:coinstats/models/bringcoins_model/quote_model.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-class DataModel {
+@HiveType(typeId: 0)
+class DataModel extends HiveObject {
+  @HiveField(0)
   final int id;
+  @HiveField(1)
   final String name;
+  @HiveField(2)
   final String symbol;
+  @HiveField(3)
   final String slug;
+  @HiveField(4)
   final int numMarketPairs;
+  @HiveField(5)
   final String dateAdded;
+  @HiveField(6)
   final List<dynamic> tags;
+  @HiveField(7)
   final int maxSupply;
+  @HiveField(8)
   final num circulatingSupply;
+  @HiveField(9)
   final num totalSupply;
+  @HiveField(10)
   final int cmcRank;
+  @HiveField(11)
   final String lastUpdated;
+  @HiveField(12)
   final QuoteModel quoteModel;
 
   DataModel(

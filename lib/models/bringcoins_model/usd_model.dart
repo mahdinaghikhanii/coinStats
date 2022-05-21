@@ -1,16 +1,30 @@
 // ignore_for_file: prefer_if_null_operators, duplicate_ignore
 
-class UsdModel {
+import 'package:hive_flutter/hive_flutter.dart';
+
+@HiveType(typeId: 1)
+class UsdModel extends HiveObject {
+  @HiveField(0)
   final num price;
+  @HiveField(1)
   final num volume24h;
+  @HiveField(2)
   final num percentChange_1h;
+  @HiveField(3)
   final num percentChange_24h;
+  @HiveField(4)
   final num percentChange_7d;
+  @HiveField(5)
   final num percentChange_30d;
+  @HiveField(6)
   final num percentChange_60d;
+  @HiveField(7)
   final num percentChange_90d;
+  @HiveField(8)
   final num marketCap;
+  @HiveField(9)
   final String lastUpdated;
+  @HiveField(10)
   final num fullydilutedmarketcap;
 
   UsdModel(
