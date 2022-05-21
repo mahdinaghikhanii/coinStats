@@ -1,5 +1,7 @@
-import 'package:coinstats/models/bringcoins_model/quote_model.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive/hive.dart';
+
+import 'quote_model.dart';
+part 'data_model.g.dart';
 
 @HiveType(typeId: 0)
 class DataModel extends HiveObject {

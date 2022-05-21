@@ -1,6 +1,6 @@
-// ignore_for_file: prefer_if_null_operators, duplicate_ignore
+import 'package:hive/hive.dart';
 
-import 'package:hive_flutter/hive_flutter.dart';
+part 'usd_model.g.dart';
 
 @HiveType(typeId: 1)
 class UsdModel extends HiveObject {
@@ -44,20 +44,15 @@ class UsdModel extends HiveObject {
     return UsdModel(
       // ignore: prefer_if_null_operators
       price: json["price"] == null ? 0.0 : json["price"],
-      volume24h: json["volume_24"] == null ? 0.0 : json["volume_24"],
-      percentChange_1h:
-          json["percent_change_1h"] == null ? 0.0 : json["percent_change_1h"],
-      percentChange_24h:
-          json["percent_change_24h"] == null ? 0.0 : json["percent_change_24h"],
-      percentChange_7d:
-          json["percent_change_7d"] == null ? 0.0 : json["percent_change_7d"],
+      volume24h: json["volume_24"] ?? 0.0,
+      percentChange_1h: json["percent_change_1h"] ?? 0.0,
+      percentChange_24h: json["percent_change_24h"] ?? 0.0,
+      percentChange_7d: json["percent_change_7d"] ?? 0.0,
       percentChange_30d:
           json["percent_change_30d"] == null ? 0.0 : json["percent_change_7d"],
-      percentChange_60d:
-          json["percent_change60d"] == null ? 0.0 : json["percent_change60d"],
-      percentChange_90d:
-          json["percent_change90d"] == null ? 0.0 : json["percent_change90d"],
-      marketCap: json["market_cap"] == null ? 0.0 : json["market_cap"],
+      percentChange_60d: json["percent_change60d"] ?? 0.0,
+      percentChange_90d: json["percent_change90d"] ?? 0.0,
+      marketCap: json["market_cap"] ?? 0.0,
       lastUpdated: json["last_updated"],
       fullydilutedmarketcap: json["fully_diluted_market_cap"],
     );

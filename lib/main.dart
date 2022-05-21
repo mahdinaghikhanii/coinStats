@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'provider/app_provider/app_provider.dart';
+// ignore: library_prefixes
+import 'package:path_provider/path_provider.dart' as pathProvider;
 import 'provider/home_provoder/home_provider.dart';
 import 'theme/configtheme.dart';
 import 'views/screans/getstart_scra.dart';
@@ -16,6 +20,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   isviewedgetstartscreans = sharedPreferences.getInt("VIEWED");
+  Directory directory = await pathProvider.getApplicationDocumentsDirectory();
+  Hive.init(directory.path);
+/*Hive.registerAdapter(ProductsModelAdapter());
+  Hive.registerAdapter(RatingModelAdapter());*/
   SystemChrome.setSystemUIOverlayStyle(
     appProvider.brightness
         ? SystemUiOverlayStyle.dark
