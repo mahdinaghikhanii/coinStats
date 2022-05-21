@@ -7,23 +7,25 @@ class HiveForDataModel with ChangeNotifier {
   List get listFavorite => _favoriteList;
 
   int _lenghtFavorite = 0;
-  Future<void> countFavorite() async {
-    var box = await Hive.openBox<DataModel>('da');
+  int get lenghFavorite => _lenghtFavorite;
+
+  countFavorite() async {
+    var box = await Hive.openBox<DataModel>('fa');
     _favoriteList = box.values.toList();
     _lenghtFavorite = _favoriteList.length;
     notifyListeners();
   }
 
-  Future<void> addFavorite(DataModel dataModel) async {
-    var box = await Hive.openBox<DataModel>('da');
-    box.add(dataModel);
+  addFavorite(DataModel dataModel) async {
+    var box = await Hive.openBox<DataModel>('fa');
+    await box.add(dataModel);
     notifyListeners();
   }
 
-  Future<void> removeFavorite() async {}
+  removeFavorite() async {}
 
-  Future<void> getFavorite() async {
-    final box = await Hive.openBox<DataModel>('da');
+  getFavorite() async {
+    final box = await Hive.openBox<DataModel>('fa');
     _favoriteList = box.values.toList();
     notifyListeners();
   }

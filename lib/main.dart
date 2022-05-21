@@ -1,15 +1,18 @@
 import 'dart:io';
 
-import 'package:coinstats/provider/widget_provider/widget_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'provider/app_provider/app_provider.dart';
 // ignore: library_prefixes
 import 'package:path_provider/path_provider.dart' as pathProvider;
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'models/bringcoins_model/fetch_coins.dart';
+import 'provider/app_provider/app_provider.dart';
 import 'provider/home_provoder/home_provider.dart';
+import 'provider/widget_provider/widget_provider.dart';
+import 'repository/hive_for_datamodel.dart';
 import 'theme/configtheme.dart';
 import 'views/screans/getstart_scra.dart';
 import 'views/screans/home_screans.dart';
@@ -23,8 +26,9 @@ void main() async {
   isviewedgetstartscreans = sharedPreferences.getInt("VIEWED");
   Directory directory = await pathProvider.getApplicationDocumentsDirectory();
   Hive.init(directory.path);
-/*Hive.registerAdapter(ProductsModelAdapter());
-  Hive.registerAdapter(RatingModelAdapter());*/
+  Hive.registerAdapter(DataModelAdapter());
+  Hive.registerAdapter(QuoteModelAdapter());
+  Hive.registerAdapter(UsdModelAdapter());
   SystemChrome.setSystemUIOverlayStyle(
     appProvider.brightness
         ? SystemUiOverlayStyle.dark
@@ -45,6 +49,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => HiveForDataModel()),
         ChangeNotifierProvider(create: (context) => WidgetPrvider()),
         ChangeNotifierProvider(
             create: (context) => BottomNavigationBarProvider()),

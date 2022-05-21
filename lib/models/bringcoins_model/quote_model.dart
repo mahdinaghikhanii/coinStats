@@ -1,6 +1,11 @@
-import 'usd_model.dart';
+import 'package:hive/hive.dart';
 
-class QuoteModel {
+import 'usd_model.dart';
+part 'quote_model.g.dart';
+
+@HiveType(typeId: 2)
+class QuoteModel extends HiveObject {
+  @HiveField(0)
   final UsdModel usdModel;
 
   QuoteModel({

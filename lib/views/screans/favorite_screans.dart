@@ -1,7 +1,8 @@
-import 'package:coinstats/module/constant.dart';
-import 'package:coinstats/main.dart';
-import 'package:coinstats/module/extension.dart';
 import 'package:flutter/material.dart';
+
+import '../../module/constant.dart';
+import '../../module/extension.dart';
+import '../widgets/fav_items_widgets.dart';
 
 class FavoriteScreans extends StatelessWidget {
   const FavoriteScreans({Key? key}) : super(key: key);
@@ -28,53 +29,9 @@ class FavoriteScreans extends StatelessWidget {
         ),
       ),
       body: SizedBox(
-        height: size.height,
-        width: size.width,
-        child: Expanded(
-            child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  /*  var coin = widget.coins[index];
-                  var coinPrice = coin.quoteModel.usdModel;
-                  var coinname = coin.name;
-                  var data = [
-                    ChartData(coinPrice.percentChange_90d, 2160),
-                    ChartData(coinPrice.percentChange_60d, 1440),
-                    ChartData(coinPrice.percentChange_30d, 720),
-                    ChartData(coinPrice.percentChange_24h, 24),
-                    ChartData(coinPrice.percentChange_1h, 1)
-                  ];*/
-                  return GestureDetector(
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 16),
-                      child: Container(
-                          height: 70.0,
-                          width: size.width,
-                          padding: const EdgeInsets.only(top: 10),
-                          decoration: BoxDecoration(
-                              color: appProvider.brightness ? kblack : kwhite,
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Row(
-                              /*     children: [
-                                              CoinLogoWidgets(
-                                                coin: coin,
-                                              ),
-                                              CoinChartWidget(
-                                                color: kwhite,
-                                                data: data,
-                                                coinPrice: coinPrice,
-                                              ),
-                                              CoinDatilForPriceWidgets(
-                                                  coinPrice: coinPrice),
-                                            ],*/
-                              )),
-                    ),
-                  );
-                })),
-      ),
+          height: size.height,
+          width: size.width,
+          child: const FavoriteIteamsWidgets()),
     );
   }
 }

@@ -1,28 +1,36 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
+import 'package:coinstats/provider/widget_provider/widget_provider.dart';
 import 'package:coinstats/views/widgets/coin_detail_about_coin.dart';
+import 'package:coinstats/views/widgets/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/chart_data_model.dart';
+import '../../repository/hive_for_datamodel.dart';
 import '../widgets/coin_chart_widget.dart';
 
+// ignore: must_be_immutable
 class CoinDetailsScreans extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   CoinDetailsScreans({required this.coin});
-  final DataModel coin;
+  DataModel coin;
   @override
   Widget build(BuildContext context) {
+    final fv = Provider.of<WidgetPrvider>(context);
     var coinIconUrl =
         "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
     // ignore: unused_local_variable
 
     final appProvider = Provider.of<AppProvider>(context);
     final textTheme = Theme.of(context).textTheme;
+    final save = Provider.of<HiveForDataModel>(context);
     var coinPrice = coin.quoteModel.usdModel;
     var data = [
       ChartData(coinPrice.percentChange_90d, 2160),
@@ -39,16 +47,25 @@ class CoinDetailsScreans extends StatelessWidget {
           child: IconButton(
             onPressed: () {
               Navigator.pop(context);
+              log(save.getFavorite().toString());
             },
             icon: const Icon(Icons.arrow_back_ios_new),
           ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child:
-                IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
-          )
+              padding: const EdgeInsets.only(right: 20),
+              child: MFavoriteButton(
+                ontap: () async {
+                  await Provider.of<HiveForDataModel>(context, listen: false)
+                      .addFavorite(coin);
+
+                  /* Provider.of<WidgetPrvider>(context).setMfavoriteButton(
+                    fv.getMFavoriteButton ? false : true,
+                  );*/
+                },
+                isFavorite: fv.getMFavoriteButton ? false : true,
+              ))
         ],
         centerTitle: true,
         elevation: 0,
