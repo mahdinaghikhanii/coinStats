@@ -66,31 +66,51 @@ class FavoriteIteamsWidgets extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                            left: 20, right: 20, bottom: 16),
+                            left: 20, right: 20, bottom: 8),
                         child: Row(
                           children: [
                             InkWell(
+                                borderRadius: BorderRadius.circular(
+                                    Constans.smallBorderRadios),
                                 onTap: () => context
                                     .nextScreans(CoinDetailsScreans(coin: fav)),
                                 child: Text(
                                   'View details',
                                   style: context.textTheme.bodyText2!
-                                      .copyWith(fontSize: 16),
+                                      .copyWith(fontSize: 14),
                                 )),
                             const Spacer(),
-                            InkWell(
-                              onTap: (() async =>
-                                  await Provider.of<HiveForDataModel>(context,
-                                          listen: false)
-                                      .removeFavorite(index)),
-                              child: Text(
-                                'Remove FAvorite',
-                                style: context.textTheme.bodyText2!
-                                    .copyWith(fontSize: 16),
-                              ),
-                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  borderRadius: BorderRadius.circular(
+                                      Constans.smallBorderRadios),
+                                  onTap: (() async =>
+                                      await Provider.of<HiveForDataModel>(
+                                              context,
+                                              listen: false)
+                                          .removeFavorite(index)),
+                                  child: Text(
+                                    'Remove FAvorite',
+                                    style: context.textTheme.bodyText2!
+                                        .copyWith(fontSize: 14),
+                                  ),
+                                ),
+                                const SizedBox(width: 5),
+                                const Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                  size: 16,
+                                ),
+                              ],
+                            )
                           ],
                         ),
+                      ),
+                      const Divider(
+                        indent: Constans.padding,
+                        endIndent: Constans.padding,
+                        color: grey,
                       )
                     ],
                   ),
