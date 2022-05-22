@@ -22,7 +22,12 @@ class HiveForDataModel with ChangeNotifier {
     notifyListeners();
   }
 
-  removeFavorite() async {}
+  removeFavorite(int index) async {
+    final box = await Hive.openBox<DataModel>('fa');
+    await box.delete(index);
+    await getFavorite();
+    notifyListeners();
+  }
 
   getFavorite() async {
     final box = await Hive.openBox<DataModel>('fa');

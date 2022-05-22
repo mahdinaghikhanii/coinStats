@@ -69,14 +69,24 @@ class FavoriteIteamsWidgets extends StatelessWidget {
                             left: 20, right: 20, bottom: 16),
                         child: Row(
                           children: [
-                            Text('View details'),
+                            InkWell(
+                                onTap: () => context
+                                    .nextScreans(CoinDetailsScreans(coin: fav)),
+                                child: Text(
+                                  'View details',
+                                  style: context.textTheme.bodyText2!
+                                      .copyWith(fontSize: 16),
+                                )),
                             const Spacer(),
                             InkWell(
-                              onTap: () => context
-                                  .nextScreans(CoinDetailsScreans(coin: fav)),
+                              onTap: (() async =>
+                                  await Provider.of<HiveForDataModel>(context,
+                                          listen: false)
+                                      .removeFavorite(index)),
                               child: Text(
                                 'Remove FAvorite',
-                                style: context.textTheme.bodyText2,
+                                style: context.textTheme.bodyText2!
+                                    .copyWith(fontSize: 16),
                               ),
                             ),
                           ],
