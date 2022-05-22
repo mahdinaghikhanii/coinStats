@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:coinstats/module/constant.dart';
-import 'package:coinstats/models/bringcoins_model/data_model.dart';
-import 'package:coinstats/views/screans/coin_details_screans.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../models/bringcoins_model/data_model.dart';
+import '../../module/constant.dart';
+import '../screans/coin_details_screans.dart';
 
 class CoinSearchWidgets extends SearchDelegate<String> {
   CoinSearchWidgets({required this.coin});
@@ -92,7 +92,7 @@ class CoinSearchWidgets extends SearchDelegate<String> {
                 leading: SizedBox(
                   width: 35,
                   child: CachedNetworkImage(
-                    imageUrl: ((Constans.coinIconUrl + myCoin.symbol + ".png")
+                    imageUrl: (("${Constans.coinIconUrl}${myCoin.symbol}.png")
                         .toLowerCase()),
                     placeholder: (context, url) =>
                         const CircularProgressIndicator(),

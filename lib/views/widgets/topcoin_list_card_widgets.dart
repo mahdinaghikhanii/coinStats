@@ -38,7 +38,7 @@ class TopCoinListcarTopWidget extends StatelessWidget {
                   width: 40.0,
                   child: CachedNetworkImage(
                     imageUrl:
-                        ((coinIconUrl + coin.symbol + ".png").toLowerCase()),
+                        (("$coinIconUrl${coin.symbol}.png").toLowerCase()),
                     placeholder: (context, url) =>
                         const CircularProgressIndicator(),
                     errorWidget: (context, url, error) =>
@@ -62,7 +62,7 @@ class TopCoinListcarTopWidget extends StatelessWidget {
                 width: 5,
               ),
               Text(
-                coinPrice.percentChange_1h.toStringAsFixed(2) + "%",
+                "${coinPrice.percentChange_1h.toStringAsFixed(2)}%",
                 style: TextStyle(
                     color: coinPrice.percentChange_1h >= 0
                         ? const Color.fromARGB(255, 17, 218, 50)
@@ -74,8 +74,7 @@ class TopCoinListcarTopWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 15),
             child: Text(
-              "\$" +
-                  coin.quoteModel.usdModel.price.toStringAsFixed(2).toString(),
+              "\$${coin.quoteModel.usdModel.price.toStringAsFixed(2)}",
               style: textTheme.subtitle2,
             ),
           ),

@@ -71,7 +71,7 @@ class CoinDetailsScreans extends StatelessWidget {
         elevation: 0,
         foregroundColor: appProvider.brightness ? kwhite : kblack,
         title: Text(
-          coin.name + " / " + "Rank #" + coin.cmcRank.toString(),
+          "${coin.name} / Rank #${coin.cmcRank}",
           style: textTheme.caption,
         ),
       ),
@@ -86,7 +86,7 @@ class CoinDetailsScreans extends StatelessWidget {
             SizedBox(
               height: 100,
               child: CachedNetworkImage(
-                imageUrl: ((coinIconUrl + coin.symbol + ".png").toLowerCase()),
+                imageUrl: (("$coinIconUrl${coin.symbol}.png").toLowerCase()),
                 placeholder: (context, url) =>
                     const CircularProgressIndicator(),
                 errorWidget: (context, url, error) =>
@@ -96,11 +96,7 @@ class CoinDetailsScreans extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            Text(
-                "\$" +
-                    coin.quoteModel.usdModel.price
-                        .toStringAsFixed(2)
-                        .toString(),
+            Text("\$${coin.quoteModel.usdModel.price.toStringAsFixed(2)}",
                 style: TextStyle(
                     color: appProvider.brightness ? kwhite : kblack,
                     fontSize: 35,
@@ -119,10 +115,7 @@ class CoinDetailsScreans extends StatelessWidget {
                         : Colors.red,
                   ),
                   Text(
-                      coin.quoteModel.usdModel.percentChange_1h
-                              .toStringAsFixed(2) +
-                          "%" +
-                          "(1h)",
+                      "${coin.quoteModel.usdModel.percentChange_1h.toStringAsFixed(2)}%(1h)",
                       style: TextStyle(
                           color: coin.quoteModel.usdModel.percentChange_1h >= 0
                               ? Colors.green
@@ -140,7 +133,7 @@ class CoinDetailsScreans extends StatelessWidget {
               height: 25,
             ),
             CoinDetailAboutCoin(
-              deetial: "\$" + coin.quoteModel.usdModel.marketCap.toString(),
+              deetial: "\$${coin.quoteModel.usdModel.marketCap}",
               name: 'Market cap',
               datachcart: '',
               icon: coin.quoteModel.usdModel.marketCap >= 0
@@ -151,8 +144,7 @@ class CoinDetailsScreans extends StatelessWidget {
                   : Colors.red,
             ),
             CoinDetailAboutCoin(
-              deetial: "\$" +
-                  coin.quoteModel.usdModel.fullydilutedmarketcap.toString(),
+              deetial: "\$${coin.quoteModel.usdModel.fullydilutedmarketcap}",
               name: 'Fully diluted marketcap',
               datachcart: '',
               icon: coin.quoteModel.usdModel.marketCap >= 0
@@ -176,7 +168,7 @@ class CoinDetailsScreans extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        coin.circulatingSupply.toString() + " " + coin.symbol,
+                        "${coin.circulatingSupply} ${coin.symbol}",
                         style: TextStyle(
                             color: appProvider.brightness ? kwhite : kblack,
                             fontWeight: FontWeight.bold,

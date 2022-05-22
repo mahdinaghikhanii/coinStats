@@ -1,7 +1,4 @@
-import 'package:coinstats/views/screans/coin_details_screans.dart';
-import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
-import 'package:coinstats/views/widgets/widgets.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../main.dart';
@@ -10,7 +7,10 @@ import '../../models/chart_data_model.dart';
 import '../../module/constant.dart';
 import '../../module/extension.dart';
 import '../../repository/hive_for_datamodel.dart';
+import '../screans/coin_details_screans.dart';
 import 'coin_detail_for_price_in_list_widgets.dart';
+import 'coin_logochart_widgets.dart';
+import 'widgets.dart';
 
 class FavoriteIteamsWidgets extends StatelessWidget {
   const FavoriteIteamsWidgets({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class FavoriteIteamsWidgets extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
-                            left: 20, right: 20, bottom: 16),
+                            left: 20, right: 20, bottom: 10),
                         child: Container(
                             height: 70.0,
                             width: context.width,
@@ -64,6 +64,24 @@ class FavoriteIteamsWidgets extends StatelessWidget {
                               ],
                             )),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, bottom: 16),
+                        child: Row(
+                          children: [
+                            Text('View details'),
+                            const Spacer(),
+                            InkWell(
+                              onTap: () => context
+                                  .nextScreans(CoinDetailsScreans(coin: fav)),
+                              child: Text(
+                                'Remove FAvorite',
+                                style: context.textTheme.bodyText2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 );

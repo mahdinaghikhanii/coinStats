@@ -21,7 +21,7 @@ packages:
       name: appwrite
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.2"
+    version: "5.0.0"
   args:
     dependency: transitive
     description:
@@ -299,7 +299,7 @@ packages:
       name: flutter_lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "2.0.1"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -414,7 +414,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "2.0.0"
   logging:
     dependency: transitive
     description:
@@ -470,7 +470,7 @@ packages:
       name: overlay_support
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.1"
+    version: "2.0.0"
   package_config:
     dependency: transitive
     description:
@@ -804,14 +804,14 @@ packages:
       name: syncfusion_flutter_charts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "19.4.56"
+    version: "20.1.56"
   syncfusion_flutter_core:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "19.4.56"
+    version: "20.1.56"
   synchronized:
     dependency: transitive
     description:

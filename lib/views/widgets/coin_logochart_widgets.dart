@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../models/bringcoins_model/data_model.dart';
 
 // ignore: must_be_immutable
 class CoinLogoWidgets extends StatelessWidget {
@@ -27,7 +28,7 @@ class CoinLogoWidgets extends StatelessWidget {
             height: 60.0,
             width: 60,
             child: CachedNetworkImage(
-              imageUrl: ((coinIconUrl + coin.symbol + ".png").toLowerCase()),
+              imageUrl: (("$coinIconUrl${coin.symbol}.png").toLowerCase()),
               placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) =>
                   SvgPicture.asset('assets/icon/dollar.svg'),

@@ -1,10 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../module/constant.dart';
-import '../../provider/widget_provider/widget_provider.dart';
 
 class MFavoriteButton extends StatelessWidget {
   final double? iconSize;
@@ -24,7 +20,7 @@ class MFavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mfb = Provider.of<WidgetPrvider>(context);
+    //final mfb = Provider.of<WidgetPrvider>(context);
     return InkWell(
       borderRadius: BorderRadius.circular(Constans.smallBorderRadios),
       onTap: ontap,

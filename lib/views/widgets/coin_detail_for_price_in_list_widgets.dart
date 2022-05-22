@@ -14,13 +14,13 @@ class CoinDatilForPriceWidgets extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "\$" + coinPrice.price.toStringAsFixed(2).toString(),
+            "\$${coinPrice.price.toStringAsFixed(2)}",
             style: textTheme.headline6,
           ),
           const SizedBox(
             height: 5,
           ),
-          Text(coinPrice.percentChange_1h.toStringAsFixed(2) + "%",
+          Text("${coinPrice.percentChange_1h.toStringAsFixed(2)}%",
               style: textTheme.headline4),
         ]);
   }
