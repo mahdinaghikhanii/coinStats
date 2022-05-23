@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 import '../models/bringcoins_model/fetch_coins.dart';
+import '../module/constant.dart';
 
 class HiveForDataModel with ChangeNotifier {
   List _favoriteList = <DataModel>[];
   List get listFavorite => _favoriteList;
 
-  /*bool _btnfav = false;
-  get btnFav => _btnfav;*/
+  bool _btnfav = false;
+  get btnFav => _btnfav;
 
   int _lenghtFavorite = 0;
   int get lenghFavorite => _lenghtFavorite;
@@ -20,12 +21,16 @@ class HiveForDataModel with ChangeNotifier {
     notifyListeners();
   }
 
-  addFavorite(DataModel dataModel) async {
+  addFavorite(DataModel dataModel, context) async {
     var box = await Hive.openBox<DataModel>('fa');
     //await box.add(dataModel);
     if (box.containsKey(dataModel.id)) {
       box.delete(dataModel.id);
+
+      _btnfav = false;
     } else {
+      _btnfav = true;
+
       box.put(dataModel.id, dataModel);
     }
     notifyListeners();
@@ -34,6 +39,7 @@ class HiveForDataModel with ChangeNotifier {
   removeFavorite(DataModel dataModel) async {
     final box = await Hive.openBox<DataModel>('fa');
     await box.delete(dataModel.id);
+
     await getFavorite();
     notifyListeners();
   }

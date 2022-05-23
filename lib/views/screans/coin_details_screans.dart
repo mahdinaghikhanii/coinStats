@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors_in_immutables
+// ignore_for_file: prefer_const_constructors_in_immutables, use_build_context_synchronously
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/module/constant.dart';
@@ -22,6 +22,7 @@ class CoinDetailsScreans extends StatelessWidget {
   DataModel coin;
   @override
   Widget build(BuildContext context) {
+    final hive = Provider.of<HiveForDataModel>(context, listen: false);
     final fv = Provider.of<WidgetPrvider>(context);
     var coinIconUrl =
         "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
@@ -55,11 +56,12 @@ class CoinDetailsScreans extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20),
               child: MFavoriteButton(
                 ontap: () async {
-                  await Provider.of<HiveForDataModel>(context, listen: false)
-                      .addFavorite(coin);
-                  // ignore: use_build_context_synchronously
-                  context.toastWidget(
-                      "Adding in your cart", Colors.red, Colors.white, 20);
+                  await hive.addFavorite(coin, context);
+                  hive.btnFav
+                      ? context.toastWidget(
+                          "Adding in your favorite 🤍", kblue, kwhite, 20)
+                      : await context.toastWidget(
+                          "Remove in your favorite", kblue, kwhite, 20);
                 },
                 isFavorite: fv.getMFavoriteButton ? false : true,
               ))

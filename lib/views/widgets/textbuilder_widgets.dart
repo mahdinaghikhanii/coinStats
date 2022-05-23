@@ -11,7 +11,8 @@ class TextBuilderWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.only(top: 25),
@@ -19,14 +20,16 @@ class TextBuilderWidgets extends StatelessWidget {
           children: [
             Icon(
               icon,
+              size: 25,
               color: kwhite,
             ),
             const SizedBox(
-              width: 20,
+              width: 15,
             ),
             Text(
               text,
-              style: Theme.of(context).textTheme.subtitle2,
+              style:
+                  Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 20),
             )
           ],
         ),

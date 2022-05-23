@@ -97,7 +97,7 @@ class SidBarWidgets extends StatelessWidget {
                   text: "About Us",
                   onTap: () async {
                     await launchUrlString(
-                        'https://main--nostalgic-jennings-63dd2f.netlify.app/');
+                        'https://main--nostalgic-jennings-63dd2f.netlify.app/#/');
                   },
                 ),
               ],
