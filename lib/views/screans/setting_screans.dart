@@ -17,11 +17,9 @@ class SettingScreans extends StatelessWidget {
         titleSpacing: 0,
         title: Text('Settings',
             style: context.textTheme.subtitle2!.copyWith(fontSize: 28)),
-        leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: Constans.padding),
-            child: InkWell(
-                onTap: (() => Navigator.pop(context)),
-                child: const Icon(Icons.arrow_back_ios))),
+        leading: IconButton(
+            onPressed: (() => Navigator.pop(context)),
+            icon: const Icon(Icons.arrow_back_ios)),
         centerTitle: false,
         elevation: 0,
       ),
