@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
+import 'package:coinstats/module/constant.dart';
+import 'package:coinstats/module/extension.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/provider/widget_provider/widget_provider.dart';
 import 'package:coinstats/views/widgets/coin_detail_about_coin.dart';
@@ -30,7 +29,7 @@ class CoinDetailsScreans extends StatelessWidget {
 
     final appProvider = Provider.of<AppProvider>(context);
     final textTheme = Theme.of(context).textTheme;
-    final save = Provider.of<HiveForDataModel>(context);
+
     var coinPrice = coin.quoteModel.usdModel;
     var data = [
       ChartData(coinPrice.percentChange_90d, 2160),
@@ -47,7 +46,6 @@ class CoinDetailsScreans extends StatelessWidget {
           child: IconButton(
             onPressed: () {
               Navigator.pop(context);
-              log(save.getFavorite().toString());
             },
             icon: const Icon(Icons.arrow_back_ios_new),
           ),
@@ -59,10 +57,9 @@ class CoinDetailsScreans extends StatelessWidget {
                 ontap: () async {
                   await Provider.of<HiveForDataModel>(context, listen: false)
                       .addFavorite(coin);
-
-                  /* Provider.of<WidgetPrvider>(context).setMfavoriteButton(
-                    fv.getMFavoriteButton ? false : true,
-                  );*/
+                  // ignore: use_build_context_synchronously
+                  context.toastWidget(
+                      "Adding in your cart", Colors.red, Colors.white, 20);
                 },
                 isFavorite: fv.getMFavoriteButton ? false : true,
               ))
