@@ -28,7 +28,6 @@ class HiveForDataModel with ChangeNotifier {
     } else {
       box.put(dataModel.id, dataModel);
     }
-
     notifyListeners();
   }
 
@@ -36,6 +35,12 @@ class HiveForDataModel with ChangeNotifier {
     final box = await Hive.openBox<DataModel>('fa');
     await box.delete(dataModel.id);
     await getFavorite();
+    notifyListeners();
+  }
+
+  updateFavorite(int index, DataModel dataModel) async {
+    final box = Hive.box<DataModel>('fa');
+    box.putAt(dataModel.id, dataModel);
     notifyListeners();
   }
 

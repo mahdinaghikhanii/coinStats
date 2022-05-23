@@ -20,7 +20,8 @@ class FavoriteIteamsWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HiveForDataModel>(builder: (context, value, child) {
       context.watch<HiveForDataModel>().getFavorite();
-      return Provider.of<HiveForDataModel>(context).lenghFavorite == 0
+      context.watch<HiveForDataModel>().countFavorite();
+      return value.lenghFavorite == 0
           ? const NothingIsHereWidgets()
           : SizedBox(
               width: double.infinity,
