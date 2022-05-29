@@ -1,4 +1,3 @@
-import 'package:coinstats/views/widgets/nothing_is_here_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +10,7 @@ import '../../repository/hive_for_datamodel.dart';
 import '../screans/coin_details_screans.dart';
 import 'coin_detail_for_price_in_list_widgets.dart';
 import 'coin_logochart_widgets.dart';
+import 'nothing_is_here_widgets.dart';
 import 'widgets.dart';
 
 class FavoriteIteamsWidgets extends StatelessWidget {

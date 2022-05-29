@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 import '../models/bringcoins_model/fetch_coins.dart';
-import '../module/constant.dart';
 
 class HiveForDataModel with ChangeNotifier {
   List _favoriteList = <DataModel>[];

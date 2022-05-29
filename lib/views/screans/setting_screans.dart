@@ -79,14 +79,6 @@ class SettingScreans extends StatelessWidget {
                   const SizedBox(
                     height: 12,
                   ),
-                  BuilderListTileWidgets(
-                    onTap: () async {},
-                    icon: Icons.person,
-                    title: 'About us',
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
                   const BuilderListTileWidgets(
                     icon: Icons.help,
                     title: 'Help',
