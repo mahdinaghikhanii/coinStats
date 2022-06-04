@@ -1,3 +1,4 @@
+import 'package:coinstats/main.dart';
 import 'package:flutter/material.dart';
 
 import '../../module/constant.dart';
@@ -18,9 +19,9 @@ class FavoriteScreans extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new,
-              color: kblack,
+              color: appProvider.brightness ? kwhite : kblack,
             )),
         centerTitle: false,
         title: Text(

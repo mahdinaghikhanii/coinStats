@@ -1,3 +1,4 @@
+import 'package:coinstats/views/screans/help/home_help.dart';
 import 'package:flutter/material.dart';
 
 import '../../module/constant.dart';
@@ -79,9 +80,10 @@ class SettingScreans extends StatelessWidget {
                   const SizedBox(
                     height: 12,
                   ),
-                  const BuilderListTileWidgets(
+                  BuilderListTileWidgets(
                     icon: Icons.help,
                     title: 'Help',
+                    onTap: () => context.nextScreans(const HomeHelpSeans()),
                   ),
                 ],
               ),
