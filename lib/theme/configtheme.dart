@@ -47,7 +47,9 @@ class ConfigTheme {
           isDarkTheme ? const Color(0xff3A3A3B) : const Color(0xff4285F4),
       focusColor:
           isDarkTheme ? const Color(0xff0B2512) : const Color(0xffA8DAB5),
-      appBarTheme: AppBarTheme(backgroundColor: isDarkTheme ? kblack : kwhite),
+      appBarTheme: AppBarTheme(
+          backgroundColor: isDarkTheme ? kblack : kwhite,
+          foregroundColor: isDarkTheme ? kwhite : kblack),
       disabledColor: Colors.grey,
       cardColor: isDarkTheme ? const Color(0xFF151515) : Colors.white,
       canvasColor: isDarkTheme ? Colors.black : Colors.grey[50],

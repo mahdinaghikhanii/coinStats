@@ -1,4 +1,4 @@
-import 'package:coinstats/views/screans/help/home_help.dart';
+import 'help/home_help.dart';
 import 'package:flutter/material.dart';
 
 import '../../module/constant.dart';
@@ -19,8 +19,10 @@ class SettingScreans extends StatelessWidget {
         title: Text('Settings',
             style: context.textTheme.subtitle2!.copyWith(fontSize: 28)),
         leading: IconButton(
-            onPressed: (() => Navigator.pop(context)),
-            icon: const Icon(Icons.arrow_back_ios)),
+          onPressed: (() => Navigator.pop(context)),
+          icon: const Icon(Icons.arrow_back_ios),
+          color: kwhite,
+        ),
         centerTitle: false,
         elevation: 0,
       ),
