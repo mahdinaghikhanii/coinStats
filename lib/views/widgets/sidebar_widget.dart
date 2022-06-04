@@ -1,9 +1,10 @@
-import 'package:coinstats/module/extension.dart';
-import 'package:coinstats/views/screans/favorite_screans.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../module/constant.dart';
+import '../../module/extension.dart';
+import '../screans/favorite_screans.dart';
+import '../screans/help/home_help.dart';
 import '../screans/setting_screans.dart';
 import 'textbuilder_widgets.dart';
 
@@ -90,7 +91,9 @@ class SidBarWidgets extends StatelessWidget {
                 TextBuilderWidgets(
                   icon: Icons.help,
                   text: "Help",
-                  onTap: () {},
+                  onTap: () {
+                    context.nextScreans(const HomeHelpSeans());
+                  },
                 ),
                 TextBuilderWidgets(
                   icon: Icons.person,

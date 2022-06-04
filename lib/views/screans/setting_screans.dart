@@ -82,11 +82,6 @@ class SettingScreans extends StatelessWidget {
                   const SizedBox(
                     height: 12,
                   ),
-                  BuilderListTileWidgets(
-                    icon: Icons.help,
-                    title: 'Help',
-                    onTap: () => context.nextScreans(const HomeHelpSeans()),
-                  ),
                 ],
               ),
             ),

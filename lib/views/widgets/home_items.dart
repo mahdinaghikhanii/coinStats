@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
-import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/models/chart_data_model.dart';
+import 'package:coinstats/module/constant.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/screans/coin_details_screans.dart';
@@ -78,6 +78,15 @@ class _HomeScreansItemsState extends State<HomeScreansItems> {
           child: SafeArea(
             child: Scaffold(
               appBar: AppBar(
+                  actions: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: Constans.padding),
+                      child: IconButton(
+                          iconSize: Constans.defualtIconSize,
+                          onPressed: () {},
+                          icon: Icon(Icons.search)),
+                    )
+                  ],
                   elevation: 0,
                   centerTitle: false,
                   leading: Padding(
