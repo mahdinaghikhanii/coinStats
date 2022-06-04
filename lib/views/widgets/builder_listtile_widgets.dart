@@ -6,7 +6,7 @@ import '../../main.dart';
 class BuilderListTileWidgets extends StatelessWidget {
   const BuilderListTileWidgets({
     Key? key,
-    required this.icon,
+    this.icon,
     required this.title,
     this.onTap,
     this.val = false,
@@ -14,7 +14,7 @@ class BuilderListTileWidgets extends StatelessWidget {
     this.onChanged,
   }) : super(key: key);
 
-  final IconData icon;
+  final IconData? icon;
   final Function()? onTap;
   final String title;
   final bool showSwitchButton;
