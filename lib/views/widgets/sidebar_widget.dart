@@ -99,7 +99,9 @@ class SidBarWidgets extends StatelessWidget {
             TextBuilderWidgets(
               icon: Icons.currency_bitcoin,
               text: "buy coin",
-              onTap: () {},
+              onTap: () async {
+                await launchUrlString('https://coinmarketcap.com/');
+              },
             ),
           ],
         ),

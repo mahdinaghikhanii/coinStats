@@ -1,8 +1,7 @@
-import 'dart:ffi';
-
-import 'package:coinstats/module/constant.dart';
-import 'package:coinstats/module/extension.dart';
 import 'package:flutter/material.dart';
+
+import '../../module/constant.dart';
+import '../../module/extension.dart';
 
 class TextBuilderWidgets extends StatelessWidget {
   const TextBuilderWidgets(

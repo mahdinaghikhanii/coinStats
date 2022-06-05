@@ -3,13 +3,11 @@
 import 'package:coinstats/models/bringcoins_model/data_model.dart';
 import 'package:coinstats/models/chart_data_model.dart';
 import 'package:coinstats/module/constant.dart';
-import 'package:coinstats/module/extension.dart';
 import 'package:coinstats/provider/app_provider/app_provider.dart';
 import 'package:coinstats/views/screans/allcoins_screans.dart';
 import 'package:coinstats/views/screans/coin_details_screans.dart';
 import 'package:coinstats/views/widgets/coin_chart_widget.dart';
 import 'package:coinstats/views/widgets/coin_logochart_widgets.dart';
-import 'package:coinstats/views/widgets/coin_search_widgets.dart';
 import 'package:coinstats/views/widgets/topcoin_list_card_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
