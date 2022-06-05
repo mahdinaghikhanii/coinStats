@@ -25,15 +25,16 @@ class SidBarWidgets extends StatelessWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.all(0),
-                  width: 80,
-                  height: 80,
+                  width: 90,
+                  height: 90,
                   child: CircleAvatar(
                     backgroundColor: kgerey300,
                     child: ClipOval(
                       child: Image.asset(
-                        "assets/images/mahdi.jpg",
-                        width: 75,
-                        height: 75,
+                        "assets/images/on1.jpg",
+                        width: 85,
+                        fit: BoxFit.fill,
+                        height: 85,
                       ),
                     ),
                   ),
@@ -48,18 +49,13 @@ class SidBarWidgets extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Mahdi naghikhani',
+                      'CoinState',
                       style: textTheme.subtitle2
                           ?.copyWith(fontSize: 18, fontWeight: FontWeight.w800),
                     ),
                     const SizedBox(
                       height: 5,
                     ),
-                    Text('View profile',
-                        style: textTheme.subtitle2?.copyWith(
-                            color: kgerey300,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700))
                   ],
                 )
               ],
@@ -84,11 +80,6 @@ class SidBarWidgets extends StatelessWidget {
                   },
                 ),
                 TextBuilderWidgets(
-                  icon: Icons.person,
-                  text: "Profile",
-                  onTap: () {},
-                ),
-                TextBuilderWidgets(
                   icon: Icons.help,
                   text: "Help",
                   onTap: () {
@@ -106,8 +97,8 @@ class SidBarWidgets extends StatelessWidget {
               ],
             ),
             TextBuilderWidgets(
-              icon: Icons.logout,
-              text: "Log out",
+              icon: Icons.currency_bitcoin,
+              text: "buy coin",
               onTap: () {},
             ),
           ],
